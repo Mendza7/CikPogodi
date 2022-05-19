@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+{% include "includes/head.html" %}
+
+<body>
+    {% include "includes/navbar.html" %}
+
+    <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-12 col-md-8 offset-md-2 text-left pt-5">
+        <h2 class="text-center"><span class="pogodi"> Trening</span></h2>
+        <div class="row mt-5">
+            <div class="col-8 offset-2">
+                <p class="text-center cik"> {{rec}}</p>
+                <p class="text-center pogodi" id="guessing">_ </p>
+            </div>
+
+            <div class="col-8 offset-2">
+                <form id="form">
+                    <input id="tbInput" type="text" maxlength="1" pattern="[ščćža-z]" />
+                    <input type="submit">
+                </form>
+            </div>
+            <div class="col-8 offset-2" id ='messages'>
+
+            </div>
+            <div class="col-8 offset-2">
+                {% include 'trening/keyboard.html' %}
+            </div>
+
+        </div>
+        <div class="row text-center justify-content-center my-5">
+          <img src="{% static '/images/stickman1.png' %}" class="stickmanWelcome img-fluid" alt="logo">
+        </div>
+      </div>
+    </div>
+  </div>
+
+    {{ request.user.username|json_script:"user_username" }}
+    {{ trening_id|json_script:"trening_id" }}
+    <script type="text/javascript">
+        const username = JSON.parse(document.getElementById('user_username').textContent);
+        const roomName = JSON.parse(document.getElementById('trening_id').textContent);
+
+
+        let url = `ws://${window.location.host}/ws/socket-server/${roomName}/`
+
+        var tacna  = `{{rec}}`
+        var remaining = tacna.length
+        var lives = 5
+        var pogadjanje = "_ ".repeat(tacna.length)
+        var success = ""
+        let guess = document.getElementById("guessing")
+        guess.innerHTML = pogadjanje
+
+        console.log('REC:',tacna)
+
+        const treningSocket = new WebSocket(url)
+
+        treningSocket.onopen = ()=> treningSocket.send(JSON.stringify({
+            'type':'initial',
+            'rec' :tacna,
+            'username':username
+        }))
+
+        treningSocket.onmessage = function(e){
+            let data = JSON.parse(e.data)
+
+           console.log('Data:', data)
+
+            if (data.type === 'result_msg'){
+                let messages = document.getElementById('messages')
+
+                messages.insertAdjacentHTML('beforeend',`<div>
+                                                <p>${data.username} pokusao ${data.message} , rezultat: ${data.succ}, preostali broj zivota: ${data.lives}</p>
+                                            </div>`)
+            }
+       }
+
+       let form = document.getElementById("form")
+       form.addEventListener('submit',(e)=>{
+           e.preventDefault()
+
+           let message = e.target.tbInput.value
+
+           var contains = false
+           for (let i = 0; i < tacna.length; i++){
+               if (success.includes(message))break;
+               if(tacna[i] === message){
+                   contains = true
+                   pogadjanje = pogadjanje.substring(0,2*i)+ message + pogadjanje.substring(2*i+1)
+                   document.getElementById("guessing").innerHTML = pogadjanje
+                   remaining--
+               }
+           }
+
+           if(contains===false)lives--
+           else success = success + message
+
+
+           document.getElementById(`btn${message}`).disabled = "disabled"
+
+           treningSocket.send(JSON.stringify({
+                'type':'result_msg',
+                'message': message,
+                'username':username,
+                'succ':(contains===true)?'uspeh':'neuspeh',
+                'lives':lives
+           }))
+
+           if(lives===0){
+               alert("NEMATE VISE ZIVOTA")
+               treningSocket.send(JSON.stringify({
+                   'type':'gameterm',
+                   'username':username,
+                   'lives':lives,
+                   'remaining':remaining
+               }))
+               window.location.href =`http://${window.location.host}/index.html`
+           }
+           if(remaining===0){
+               alert("CESTITAMO!")
+               treningSocket.send(JSON.stringify({
+                   'type':'gameterm',
+                   'username':username,
+                   'lives':lives,
+                   'remaining':remaining
+               }))
+               window.location.href =`http://${window.location.host}/index.html`
+           }
+
+
+           form.reset()
+       })
+
+    </script>
+</body>
+
+
+</html>

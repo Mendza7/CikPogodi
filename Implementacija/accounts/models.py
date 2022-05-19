@@ -1,8 +1,9 @@
-
+from random import randint
 
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models import Count
 from django.utils.translation import gettext_lazy as _
 # Create your models here.
 from CikPogodi import settings
@@ -166,7 +167,6 @@ class Rec(models.Model):
 
 
 
-
 class Igra(models.Model):
     TRENING = 'trening'
     PVP = 'duel'
@@ -177,25 +177,41 @@ class Igra(models.Model):
     ]
 
     ISHOD = [
+        (-2,_('U toku')),
         (-1,_('Igrac 1 pobeda')),
         (0,_('Nereseno')),
         (1,_('Igrac 2 pobeda')),
     ]
     idigra = models.AutoField(db_column='idIgra', primary_key=True)
     tipigre = models.CharField(max_length=45, choices=TIP)
-    ishod = models.IntegerField(choices=ISHOD, default=0)
+    ishod = models.IntegerField(choices=ISHOD, default=-2)
 
     class Meta:
         db_table='Igra'
+
+    @staticmethod
+    def create_igra(tipIgre):
+        igra = Igra(tipigre = tipIgre,ishod = -2)
+        igra.save()
+        return igra
+
+
 
 
 class Trening(models.Model):
     idigra = models.OneToOneField(Igra, models.CASCADE,to_field='idigra')
     idrec=models.ForeignKey(Rec, models.DO_NOTHING,to_field='idrec')
-    idkor = models.OneToOneField(settings.AUTH_USER_MODEL,models.DO_NOTHING,to_field='idkor')
+    idkor = models.ForeignKey(settings.AUTH_USER_MODEL,models.DO_NOTHING,to_field='idkor')
 
     class Meta:
         db_table='Trening'
+
+    @staticmethod
+    def create_trening(idkor,rec):
+        tren = Trening(idigra=Igra.create_igra(Igra.TRENING),idrec = rec, idkor = idkor)
+        tren.save()
+        return tren
+
 
 
 class Lobi(models.Model):
@@ -228,10 +244,10 @@ class Lobi(models.Model):
 
 class Potez(models.Model):
     idpotez = models.AutoField(db_column = "idPotez", primary_key = True)
-
-    idigra = models.OneToOneField(Igra, models.CASCADE,to_field='idigra')
+    idigra = models.ForeignKey(Igra, models.CASCADE,to_field='idigra')
     idkor = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, related_name="%(class)s_idkor+")
-
+    idrec = models.ForeignKey(Rec,models.DO_NOTHING,related_name="%(class)s_idrec+", default=-1)
+    slovo = models.CharField(max_length=1,null=False, default="#")
     ishod = models.BooleanField(null=False)
 
     class Meta:
