@@ -1,0 +1,22 @@
+{% extends "pages/base.html" %}
+
+{% block content %}
+    {% include "includes/navbar.html" %}
+
+    {% load static %}
+    <div class="container-fluid text-center">
+        <div class="row content">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-8 text-left pt-5">
+              <h2>Odjavljeni ste.</h2>
+             <div class="border-top pt-3">
+             <small class="text-muted">
+                <a href="{% url 'prijava' %}">Prijavite se ponovo.</a>
+            </small>
+            </div>
+          </div>
+        </div>
+    </div>
+
+{% endblock content %}

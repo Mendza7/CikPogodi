@@ -1,0 +1,53 @@
+{% extends 'pages/base.html' %}
+{% block title %}
+    Cik Pogodi - Kreiraj lobi
+{% endblock %}
+{% block content %}
+    {% include "includes/navbar.html" %}
+
+    {% load static %}
+
+    <div class="kreirajLobi">
+        <div class="container-fluid text-center">
+        <div class="row content">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-8 text-left pt-5">
+                <form id="lobiForm" class="bg-white p-5" method="post">
+                    {% csrf_token %}
+                    <h2>Kreiraj lobi</h2>
+                    <div class="form-group">
+                        <label id="imeLobija">Ime lobija</label>
+                        <input id="id_imeLobija" name="imeLobija"
+                                       type="text" class="form-control" placeholder="Unesite ime lobija">
+
+                    </div>
+
+                 <legend > Težina reči:</legend>
+              <div>
+                  <input type="radio"  id="lako" name="checks[]" checked>
+                  <label for="lako" >Lako</label>
+                  <input type="radio"  id="srednje" class="" name="checks[]" >
+                  <label for="srednje" >Srednje</label>
+                  <input type="radio" id="tesko" name="checks[]" class="">
+                  <label for="tesko" >Teško</label>
+                  <br><br>
+
+              </div>
+
+
+                    <input type="submit" value="Kreiraj lobi"
+                           class="btn btn-primary pull-right" />
+                    {% if form.errors %}
+                        <p class=" label label-danger">
+                            Neispravno uneti podaci. Pokusajte ponovo
+                        </p>
+                    {% endif %}
+                </form>
+          </div>
+        </div>
+    </div>
+    </div>
+
+
+{% endblock content %}
