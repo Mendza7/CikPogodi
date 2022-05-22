@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth.decorators import login_required
-
+from django.core.mail import send_mail
+from django.conf import settings
 from accounts import models
 
 def index(request):
@@ -149,18 +150,17 @@ def reset_password(request):
             error_message = "Unesite email"
         else:
             if models.Korisnik.objects.postoji_korisnik_email(email):
-                lozinka = models.Korisnik.objects.make_random_password()
-                #models.Korisnik.promeni_lozinku(email, lozinka)
 
-                # TODO: napraviti slanje maila
-                # email = EmailMessage(
-                #     'Čik Pogodi | Resetovanje lozinke',
-                #     f'Vaša nova lozinka je: {lozinka}',
-                #     to=[email],
-                # )
-                # email.send()
+                password = models.Korisnik.objects.make_random_password()
+                subject = 'Cik Pogodi | Resetovanje lozinke'
+                message = 'Vasa nova lozinka je %s' % password
+                email_from = settings.EMAIL_HOST_USER
+                recipient_list = [email]
+                send_mail(subject, message, email_from, recipient_list)
 
-                # TODO: izbrisati lozinku
+                korisnik = models.Korisnik.objects.get(email=email)
+                korisnik.set_password(password)
+                korisnik.save()
                 success_message = "Uskoro cete dobiti email sa novom lozinkom: %s" % lozinka
             else:
                 error_message = "Korisnik sa unetim email-om ne postoji"
