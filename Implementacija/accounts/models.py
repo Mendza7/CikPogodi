@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, random
 
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import AbstractUser
@@ -165,6 +165,22 @@ class Rec(models.Model):
     def __str__(self):
         return self.rec
 
+    @staticmethod
+    def create(recString):
+        if (len(recString) <= 6):
+            tezina = 0
+        elif (len(recString) > 6 and len(recString) <= 9):
+            tezina = 1
+        else:
+            tezina = 2
+
+        rec = Rec(
+            rec=recString,
+            tezina=tezina
+        )
+        rec.save()
+        return rec
+
 
 
 class Igra(models.Model):
@@ -258,6 +274,7 @@ class Potez(models.Model):
 
 class Partija(models.Model):
     idigra = models.OneToOneField(Igra, models.CASCADE,to_field='idigra',primary_key=True)
+    first_turn = models.IntegerField(default = randint(0,1))
 
     idrec1 = models.ForeignKey(Rec,models.DO_NOTHING, related_name="idrec1")
     idrec2 = models.ForeignKey(Rec,models.DO_NOTHING, related_name="idrec2")

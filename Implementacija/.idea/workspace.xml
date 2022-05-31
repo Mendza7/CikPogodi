@@ -2,26 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfeed54f-37ed-45b4-8aab-d8f410b52a13" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trening/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trening/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trening/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trening/consumers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trening/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trening/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trening/routing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trening/templates/trening/keyboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trening/templates/trening/trening.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trening/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trening/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trening/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CikPogodi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CikPogodi.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CikPogodi/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/CikPogodi/asgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CikPogodi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CikPogodi/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CikPogodi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CikPogodi/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ranklist/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ranklist/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ranklist/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ranklist/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ranklist/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ranklist/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ranklist/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trening/routing.py" beforeDir="false" afterPath="$PROJECT_DIR$/trening/routing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trening/templates/trening/trening.html" beforeDir="false" afterPath="$PROJECT_DIR$/trening/templates/trening/trening.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trening/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/trening/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Blank Requirements File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -60,15 +57,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/mehme/Desktop/CikPogodi/Implementacija/trening/templates/trening",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "last_opened_file_path": "C:/Users/mehme/Desktop/CikPogodi/Implementacija/static/images",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mehme\Desktop\CikPogodi\Implementacija\static\images" />
       <recent name="C:\Users\mehme\Desktop\CikPogodi\Implementacija\trening\templates\trening" />
       <recent name="C:\Users\mehme\Desktop\CikPogodi\Implementacija\templates" />
       <recent name="C:\Users\mehme\Desktop\CikPogodi\Implementacija" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mehme\Desktop\CikPogodi\Implementacija\static\images\lives" />
     </key>
   </component>
   <component name="RunManager">
@@ -107,7 +108,8 @@
       <updated>1652819334152</updated>
       <workItem from="1652819335939" duration="8474000" />
       <workItem from="1652828028256" duration="11467000" />
-      <workItem from="1652877621349" duration="30042000" />
+      <workItem from="1652877621349" duration="35638000" />
+      <workItem from="1653817309201" duration="36788000" />
     </task>
     <servers />
   </component>
