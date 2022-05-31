@@ -26,10 +26,10 @@ def registration(request):
         korisnickoime = request.POST["korisnickoime"]
         lozinka = request.POST["lozinka"]
 
-        if not korisnickoime:
-            error_message = "Unesite korisnicko ime"
-        elif not email:
-            error_message = "Unesite email"
+        if not korisnickoime or len(models.Korisnik.objects.filter(username=korisnickoime)):
+            error_message = "Neispravno korisnicko ime ili vec postoji korisnik sa tim korisnickim imenom"
+        elif not email or len(models.Korisnik.objects.filter(email=email)):
+            error_message = "Neispravan email ili vec postoji korisnik sa tim email-om"
         elif not lozinka:
             error_message = "Unesite lozinku"
         else:
@@ -222,10 +222,10 @@ def reset_password(request):
                 recipient_list = [email]
                 send_mail(subject, message, email_from, recipient_list)
 
-                korisnik = models.Korisnik.objects.get(email=email)
+                korisnik = models.Korisnik.objects.filter(email=email)[0]
                 korisnik.set_password(password)
                 korisnik.save()
-                success_message = "Uskoro cete dobiti email sa novom lozinkom: %s" % lozinka
+                success_message = "Uskoro cete dobiti email sa novom lozinkom: %s" % password
             else:
                 error_message = "Korisnik sa unetim email-om ne postoji"
 

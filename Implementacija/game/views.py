@@ -1,5 +1,6 @@
 import json
 
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import render
 
@@ -10,7 +11,7 @@ from accounts.models import *
 class Game:
     pass
 
-
+@login_required(login_url='prijava')
 def game_id(request, game_id):
     context={
         "rec1":"cerimidjinica",
