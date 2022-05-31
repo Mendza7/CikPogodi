@@ -52,5 +52,5 @@ class RecAdmin(ModelAdmin):
 
 admin.site.register(Korisnik,KorisnikAdmin)
 admin.site.register(Igrac)
-admin.site.register(Rec,RecAdmin)
+admin.site.register(Rec)
 admin.site.register(Lobi)

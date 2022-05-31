@@ -86,7 +86,7 @@ class KorisnikAdminChangeForm(forms.ModelForm):
 class RecCreationForm(forms.ModelForm):
     class Meta:
         model = Rec
-        fields= ['rec']
+        fields= ['rec','tezina']
 
     def clean_tezina(self):
         rec = self.cleaned_data['rec']
@@ -103,38 +103,22 @@ class RecCreationForm(forms.ModelForm):
 
     def clean_rec(self):
         rec = self.cleaned_data.get('rec')
-        if len(rec) <8 :
-            self.tezina = Rec.LAKA
-            return rec
-        elif len(rec) < 13:
-            self.tezina = Rec.SREDNJA
-            return rec
-        else:
-            self.tezina = Rec.TESKA
-            return rec
+
         qs = Rec.objects.filter(rec=rec)
         if qs.exists():
             raise forms.ValidationError("rec already exists")
-
         return rec
 
     def save(self,commit = True):
-        rec = super().save(commit=False)
-        if len(rec.rec) < 8:
-            rec.tezina = Rec.LAKA
-        elif len(rec.rec)>=8 and len(rec) < 13:
-            rec.tezina = Rec.SREDNJA
-        else:
-            rec.tezina = Rec.TESKA
-        if commit:
-            rec.save()
-        return rec
+        rec = Rec.create(self.cleaned_data['rec'])
+        rec.save()
+
 
 class RecChangeForm(forms.ModelForm):
 
     class Meta:
         model=Rec
-        fields = ['rec']
+        fields = ['rec', 'tezina']
 
     def clean_rec(self):
         rec= self.cleaned_data['rec']
