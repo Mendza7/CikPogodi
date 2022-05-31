@@ -32,8 +32,8 @@
 }
 
 .logo {
-  width: 100px;
-  height: 80px;
+  width: 60px;
+  height: 50px;
 }
 
 .stickmanUputstvo {
@@ -89,7 +89,7 @@
   color: #FD0606;
 }
 
-.uputsvo {
+.uputstvo {
   background-color: transparent;
   position: absolute;
   width: 200px;
@@ -131,12 +131,13 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: #f8f9fa !important;
-  padding: 10px 20px;
+  /*padding: 5px;*/
 }
 
 .navbar {
-  height: 100px;
-  background-color: transparent;
+    height: 70px;
+    background-color: white;
+    opacity: 0.8;
 }
 
 .nav-link, .navbar-text a {
@@ -151,3 +152,37 @@ footer {
   color: #279c66
 }
 
+.tezina{
+    font-size:40px;
+    width: 100px; height: 30px;
+}
+
+.tegovi{
+position: absolute;
+width: 350px;
+
+height: 350px;
+left: -200px;
+top: -200px;
+
+}
+
+.multi{
+position: absolute;
+width: 350px;
+
+height: 350px;
+right: -200px;
+bottom: -200px;
+
+}
+
+.kreirajLobi{
+  width: 80%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

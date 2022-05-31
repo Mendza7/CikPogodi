@@ -11,7 +11,7 @@ from CikPogodi import settings
 
 class KorisnikManager(BaseUserManager):
 
-    def create_user(self, username, email, password=None, **extra_fields):
+    def create_user(self, username: object, email: object, password: object = None, **extra_fields: object) -> object:
         if not username or not email:
             raise ValueError("korisnickoime prazno.")
 
@@ -253,6 +253,8 @@ class Lobi(models.Model):
 
     idkor1 = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, related_name="%(class)s_idkor1")
     idkor2 = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, related_name="%(class)s_idkor2")
+
+
 
     class Meta:
         db_table='lobi'
