@@ -18,7 +18,7 @@ def trening_id(request, trening_id):
     count = Rec.objects.aggregate(count=Count('idrec'))['count']
     random_ind = randint(0, count - 1)
     rec = Rec.objects.all()[random_ind]
-    context['rec'] = rec
+    context['recrec'] = rec.rec
     context['trening_id'] = trening_id
 
     return render(request, 'trening/trening.html', context)
