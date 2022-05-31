@@ -27,9 +27,11 @@
                   {{ request.user.username }}
                 <a href="{% url 'odjava' %}">Odjava</a>
               {% else %}
-                <a href="/registracija"> Registracija</a>
+                {% if request.session.gost %}
+                    {{request.session.gost}} &nbsp;
+                {% endif %}
+                <a href="/registracija"> Registracija </a>
               {% endif %}
-
             </li>
           </ul>
           </div>

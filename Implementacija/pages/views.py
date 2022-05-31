@@ -1,3 +1,6 @@
+import random
+from string import ascii_letters
+
 from django.core import mail
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, logout
@@ -96,11 +99,11 @@ def gost(request):
 
     if request.method == 'POST':
 
-        ime = request.POST["gostime"]
-        print(ime)
+        ime = request.POST["gostime"] + '_' + ''.join(random.choice(ascii_letters) for i in range(4))
         if not ime:
             error_message = "Unesite ime"
         else:
+            request.session['gost'] = ime
             return redirect('izbor-rezima')
 
 
