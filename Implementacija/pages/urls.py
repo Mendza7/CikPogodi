@@ -12,4 +12,9 @@ urlpatterns = [
     path('kreiraj-lobi', views.kreiraj_lobi, name='kreiraj-lobi'),
     path('upravljanje-admin', views.upravljanje_admin, name='upravljanje-admin'),
     path('izbor-lobija', views.izbor_lobija, name='izbor-lobija'),
+    path('', views.index, name='index'),
+    path('uputstvo', views.manual, name='uputstvo'),
+    path('registracija', views.registration, name='registracija'),
+    path('reset-lozinke', views.reset_password, name='reset-lozinke'),
+    path('rang-lista', views.rang_lista, name='rang-lista'),
 ]

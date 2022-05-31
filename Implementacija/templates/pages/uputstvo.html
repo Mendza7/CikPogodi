@@ -1,0 +1,36 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}
+    Cik Pogodi - Uputstvo
+{% endblock %}
+{% block content %}
+  {% include "includes/navbar.html" %}
+
+  {% load static %}
+
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-8 text-left pt-5">
+        <p class="uputstvoTekst"> Igra „Čik pogodi” funkcioniše tako što se nasumično ili odabirom zadaje reč za
+          pogađanje, a
+          igrač treba da pogodi o kojoj reči se radi. <br>
+          Reč za pogađanje je reprezentovana crticama iza kojih se kriju slova. Igrač redom bira slova za koja misli da
+          se
+          nalaze u reči.<br>
+          Ako igrač pogodi slovo koje se nalazi u reči, slovo se pojavljuje na svim tačnim pozicijama i igrač pogađa
+          koja je
+          reč u pitanju ili bira sledeće slovo.
+          Ukoliko u reči ne postoji zadato slovo, igraču se smanjuje broj šansi za pogađanje. <br>
+          Ako igrač pogodi reč, igra se završava uspešno, u suprotnom neuspešno.
+        </p>
+        <div class="row text-center justify-content-center my-5">
+          <img src="{% static '/images/stickman2.png' %}" class="stickmanWelcome img-fluid" alt="logo">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+{% endblock %}
