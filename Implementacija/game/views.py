@@ -13,6 +13,13 @@ class Game:
 
 @login_required(login_url='prijava')
 def game_id(request, game_id):
+    '''
+
+    :param request:
+    :param game_id: id igre
+    :return:
+    '''
+
     context={
         "rec1":"cerimidjinica",
         "rec2":"cerimidjinica2",
@@ -22,6 +29,13 @@ def game_id(request, game_id):
 
 
 def getWords(request, game_d):
+    '''
+    Funkcija koja dostavlja reci i korisnike multiplayer rezimu.
+    :param request:
+    :param game_d: id igre za koju hocemo da dohvatimo reci
+    :return:
+    '''
+
     is_ajax = request.headers.get('X-Requested-With') == 'XMLHttpRequest'
     if is_ajax:
         if request.method == 'GET':

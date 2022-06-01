@@ -184,6 +184,7 @@ class Rec(models.Model):
 
 
 class Igra(models.Model):
+
     TRENING = 'trening'
     PVP = 'duel'
 
@@ -231,6 +232,18 @@ class Trening(models.Model):
 
 
 class Lobi(models.Model):
+    LAKA = 0
+    SREDNJA = 1
+    TESKA = 2
+
+
+    TEZINA = [
+        (LAKA, _('Laka rec')),
+        (SREDNJA, _('Srednja rec')),
+        (TESKA, _('Teska rec')),
+    ]
+
+
     OSNOVNI = 'osnovni'
     VIP = 'vip'
 
@@ -248,11 +261,14 @@ class Lobi(models.Model):
     ]
 
     idigra = models.OneToOneField(Igra, models.CASCADE,to_field='idigra',primary_key=True)
+    ime = models.CharField(max_length=30,default="lobi_default")
     tip = models.CharField(choices=TIP,default=OSNOVNI, null = False, max_length=30)
     status = models.CharField(choices=STATUS,default=OTVOREN, max_length=30)
+    tezina = models.IntegerField(choices=TEZINA, null = True)
+
 
     idkor1 = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, related_name="%(class)s_idkor1")
-    idkor2 = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, related_name="%(class)s_idkor2")
+    idkor2 = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, related_name="%(class)s_idkor2", null=True)
 
 
 

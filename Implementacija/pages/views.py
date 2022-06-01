@@ -79,6 +79,7 @@ def registration(request):
 #             #     }
 #             # )
 
+@login_required(login_url='prijava')
 def kreiraj_lobi(request):
     success_message = None
     error_message = None
@@ -86,14 +87,21 @@ def kreiraj_lobi(request):
     if request.method == 'POST':
 
         imeLobija = request.POST["imeLobija"]
-        lako = request.POST["lako"]
-        srednje = request.POST["srednje"]
-        tesko = request.POST["tesko"]
+        print(imeLobija)
+        tezina = int(request.POST['checks[]'])
+        print(tezina)
+
 
         #TODO: kreiraj lobi u bazi
+        igra = models.Igra.create_igra(tipIgre=models.Igra.PVP)
+        igra.save()
+        user = models.Korisnik.objects.get(idkor=request.user.idkor)
+        tip = models.Lobi.OSNOVNI
+        if(user.tipkorisnika == models.Korisnik.VIP):
+            tip = models.Lobi.VIP
 
-        lobi = models.Lobi.objects.create()
-
+        lobi = models.Lobi.objects.create(idigra=igra,ime=imeLobija,tip=tip, tezina = tezina, idkor1=user )
+        lobi.save()
     return render(
         request,
         'pages/kreiraj-lobi.html',{}
@@ -134,10 +142,15 @@ def izbor_lobija(request):
     success_message = None
     error_message = None
 
+    VipLobi = models.Lobi.objects.filter(tip = models.Lobi.VIP)
+    KorisnikLobi = models.Lobi.objects.filter(tip = models.Lobi.OSNOVNI)
+
     return render(
         request,
         'pages/izbor-lobija.html',
         {
+            "vip":VipLobi,
+            "osnovni":KorisnikLobi,
             "error_message": error_message,
             "success_message": success_message
         }

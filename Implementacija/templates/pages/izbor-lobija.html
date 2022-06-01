@@ -25,21 +25,21 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <h2 style=" text-align:left;">VIP Lobiji</h2>
                 </li>
+                {% for obj in vip%}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
 
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                        {#dodati da se dinamicki prikazuju lobiji iz baze#}
+                            {{obj.ime}} Lobi {{obj.idigra}} | {{obj.status}}
+                            <input type="submit" value="Pridruzi se"
+                               class="btn btn-primary pull-right " />
+                        </div>
+                        <div>
+                            {{obj.idkor1.username}} / {{obj.idkor2.username}}
+                        </div>
 
-                    <div>
-                    {#dodati da se dinamicki prikazuju lobiji iz baze#}
-                        1. VIP Lobi 1
-                        <input type="submit" value="Pridruzi se"
-                           class="btn btn-primary pull-right " />
-                    </div>
-                    <div>
-                        {#dodati da se dinamicki ispisuje broj igraca#}
-                       1/2
-                    </div>
-
-              </li>
+                    </li>
+                {% endfor %}
 
             </ul>
 
@@ -64,20 +64,22 @@
 {#                        </div>#}
                     </div>
 
-              </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {#dodati da se dinamicki prikazuju lobiji iz baze#}
-                    <div>
-                        1. Osnovni lobi 1
-                        <input type="submit" value="Pridruzi se"
-                           class="btn btn-primary pull-right " />
-                    </div>
-                    <div>
-                       {#dodati da se dinamicki ispisuje broj igraca#}
-                       1/2
-                    </div>
+                 </li>
+                {% csrf_token %}
+                {% for obj in osnovni %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {#dodati da se dinamicki prikazuju lobiji iz baze#}
+                        <div>
+                            {{obj.ime}} Lobi {{obj.idigra}} | {{obj.status}}
+                            <input type="submit" value="Pridruzi se"
+                               class="btn btn-primary pull-right " />
+                        </div>
+                        <div>
+                            {{obj.idkor1.username}} / {{obj.idkor2.username}}
+                        </div>
 
-              </li>
+                  </li>
+                {% endfor %}
 
             </ul>
 

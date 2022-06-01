@@ -40,7 +40,8 @@ class gameConsumer(WebsocketConsumer):
             print("Message received" + text_data)
             self.user1 = username
             self.game = Partija.objects.get(idigra_id=int(text_data_json['gameid']))
-
+            if username not in [self.game.idkor1.username, self.game.idkor2.username]:
+                self.close()
             if not self.user2:
                 async_to_sync(self.channel_layer.group_send)(
                     self.room_group_name,
@@ -60,9 +61,9 @@ class gameConsumer(WebsocketConsumer):
             potez.save()
 
             lives = text_data_json['lives']
-            if username == self.user1:
+            if username == self.game.idkor1.username:
                 self.game.brojzivota1 = int(lives)
-            elif username == self.user2:
+            elif username ==  self.game.idkor2.username:
                 self.game.brojzivota2 = int(lives)
             self.game.save()
 
