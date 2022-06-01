@@ -60,25 +60,44 @@ def kreiraj_lobi(request):
         :param request: WSGIRequest
         :return: HttpResponse: Renderovana html stranica
     '''
-    success_message = None
-    error_message = None
 
     if request.method == 'POST':
+        '''
+        imeLobija: string
+        Ime lobija koji se kreira
+        '''
 
         imeLobija = request.POST["imeLobija"]
         print(imeLobija)
+
+        '''
+        tezina: int 
+        Tezina reci koja se zadaje pri kreiranju
+        '''
+
         tezina = int(request.POST['checks[]'])
         print(tezina)
 
 
         #kreiraj lobi u bazi
+        '''
+        igra: Igra 
+        '''
         igra = models.Igra.create_igra(tipIgre=models.Igra.PVP)
         igra.save()
+        '''
+        user: Korisnik
+        '''
         user = models.Korisnik.objects.get(idkor=request.user.idkor)
+        '''
+        tip: string
+        '''
         tip = models.Lobi.OSNOVNI
         if(user.tipkorisnika == models.Korisnik.VIP):
             tip = models.Lobi.VIP
-
+        '''
+        lobi: Lobi
+        '''
         lobi = models.Lobi.objects.create(idigra=igra,ime=imeLobija,tip=tip, tezina = tezina, idkor1=user )
         lobi.save()
     return render(
@@ -112,10 +131,24 @@ def izbor_lobija(request):
         :param request: WSGIRequest
         :return: HttpResponse: Renderovana html stranica
     '''
+    '''
+    success_message: string
+    '''
     success_message = None
+    '''
+    error_message: string
+    '''
     error_message = None
 
+    '''
+    VipLobi: QuerySet[Lobi]
+    Vip lobiji iz baze
+    '''
     VipLobi = models.Lobi.objects.filter(tip = models.Lobi.VIP)
+    '''
+    KorisnikLobi: QuerySet[Lobi]
+    Osnovni lobiji iz baze
+    '''
     KorisnikLobi = models.Lobi.objects.filter(tip = models.Lobi.OSNOVNI)
 
     return render(
@@ -147,10 +180,21 @@ def gost(request):
        :param request: WSGIRequest
        :return: HttpResponse: Renderovana html stranica
     '''
+
+    '''
+    success_message: string
+    '''
     success_message = None
+    '''
+    error_message: string
+    '''
     error_message = None
 
     if request.method == 'POST':
+        '''
+        ime: string
+        Ime koje je Gost uneo
+        '''
 
         ime = request.POST["gostime"] + '_' + ''.join(random.choice(ascii_letters) for i in range(4))
         if not ime:
@@ -175,8 +219,15 @@ def select_game(request):
         :param request: WSGIRequest
         :return: HttpResponse: Renderovana html stranica
     '''
+    '''
+    success_message: string
+    '''
     success_message = None
+    '''
+    error_message: string
+    '''
     error_message = None
+
     return render(
         request,
         'pages/izbor-rezima.html',{}
