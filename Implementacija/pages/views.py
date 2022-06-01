@@ -1,3 +1,4 @@
+# Autor: Merisa Harcinovic 0258/19
 import random
 from string import ascii_letters
 
@@ -51,36 +52,14 @@ def registration(request):
         }
     )
 
-# def login(request):
-#     success_message = None
-#     error_message = None
-#
-#     if request.method == 'POST':
-#
-#         korisnickoime = request.POST["korisnickoime"]
-#         lozinka = request.POST["lozinka"]
-#
-#         korisnik = authenticate(request, username=korisnickoime, password=lozinka)
-#
-#
-#         if korisnik is not None:
-#             login(request)
-#             success_message = "Uspesno ste se ulogovali na sistem"
-#             return redirect('izbor-rezima')
-#
-#         else:
-#             error_message = "Neispravno korisnicko ime ili lozinka"
-#             # return render(
-#             #     request,
-#             #     'pages/prijava.html',
-#             #     {
-#             #         "error_message": error_message,
-#             #         "success_message": success_message
-#             #     }
-#             # )
 
 @login_required(login_url='prijava')
 def kreiraj_lobi(request):
+    '''
+    # Funkcija kojom se kreira lobi preko zadatog imena i tezine reci
+        :param request: WSGIRequest
+        :return: HttpResponse: Renderovana html stranica
+    '''
     success_message = None
     error_message = None
 
@@ -92,7 +71,7 @@ def kreiraj_lobi(request):
         print(tezina)
 
 
-        #TODO: kreiraj lobi u bazi
+        #kreiraj lobi u bazi
         igra = models.Igra.create_igra(tipIgre=models.Igra.PVP)
         igra.save()
         user = models.Korisnik.objects.get(idkor=request.user.idkor)
@@ -125,20 +104,14 @@ def rang_lista(request):
         }
     )
 
-def upravljanje_admin(request):
-    success_message = None
-    error_message = None
 
-    return render(
-        request,
-        'pages/korisnici-admin.html',
-        {
-            "error_message": error_message,
-            "success_message": success_message
-        }
-    )
 
 def izbor_lobija(request):
+    '''
+    # Funkcija kojom se vrsi izbor lobija
+        :param request: WSGIRequest
+        :return: HttpResponse: Renderovana html stranica
+    '''
     success_message = None
     error_message = None
 
@@ -158,12 +131,22 @@ def izbor_lobija(request):
 
 
 def logout_view(request):
+    '''
+    # Funkcija kojom se vrsi odjava sa sistema
+        :param request: WSGIRequest
+        :return: HttpResponse: Renderovana html stranica
+    '''
     logout(request)
     # Redirect to a success page.
     return render(request, 'pages/odjava.html')
 
 
 def gost(request):
+    '''
+    # Funkcija kojom se korisnik prijavljuje na sistem kao Gost
+       :param request: WSGIRequest
+       :return: HttpResponse: Renderovana html stranica
+    '''
     success_message = None
     error_message = None
 
@@ -187,6 +170,11 @@ def gost(request):
     )
 
 def select_game(request):
+    '''
+    # Funkcija kojom se vrsi izbor rezima igre - Trening ili Multiplayer
+        :param request: WSGIRequest
+        :return: HttpResponse: Renderovana html stranica
+    '''
     success_message = None
     error_message = None
     return render(
@@ -250,3 +238,46 @@ def reset_password(request):
             "success_message": success_message
         }
     )
+
+#
+# def upravljanje_admin(request):
+#     success_message = None
+#     error_message = None
+#
+#     return render(
+#         request,
+#         'pages/korisnici-admin.html',
+#         {
+#             "error_message": error_message,
+#             "success_message": success_message
+#         }
+#     )
+
+
+# def login(request):
+#     success_message = None
+#     error_message = None
+#
+#     if request.method == 'POST':
+#
+#         korisnickoime = request.POST["korisnickoime"]
+#         lozinka = request.POST["lozinka"]
+#
+#         korisnik = authenticate(request, username=korisnickoime, password=lozinka)
+#
+#
+#         if korisnik is not None:
+#             login(request)
+#             success_message = "Uspesno ste se ulogovali na sistem"
+#             return redirect('izbor-rezima')
+#
+#         else:
+#             error_message = "Neispravno korisnicko ime ili lozinka"
+#             # return render(
+#             #     request,
+#             #     'pages/prijava.html',
+#             #     {
+#             #         "error_message": error_message,
+#             #         "success_message": success_message
+#             #     }
+#             # )

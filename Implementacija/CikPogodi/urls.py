@@ -1,3 +1,5 @@
+# Autor: Merisa Harcinovic 0258/19
+
 """CikPogodi URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
