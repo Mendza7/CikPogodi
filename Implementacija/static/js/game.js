@@ -25,14 +25,14 @@ async function getData(){
     .then(response=>response.json())
     .then(data=>{
         userData=data;
-        console.log(data);
+        //console.log(data);
     });
 }
 
 //Ajax upit se ponavlja na 2 sekunde dok ne dodje drugi igrac
 async function waitGame() {
     const data = await this.getData();
-    console.log("ajax", userData)
+    //("ajax", userData)
 
     if(userData['user2']!==null) {
         updateNames();
@@ -47,7 +47,10 @@ async function waitGame() {
 waitGame();
 
 function updateNames(){
-    console.log("usr",userData)
+    //console.log("usr",userData)
+
+    //Funkcija updejtuje imena korisnika kao i reci na html strani koristeci AJAX dovucene podatke.
+
     if (username === userData['user1']){
         user = 0;
         tacna = userData['rec2'];
@@ -86,9 +89,10 @@ gameSocket.onopen = ()=> gameSocket.send(JSON.stringify({
     'gameid':roomName
 }))
 
+
 gameSocket.onmessage = function(e) {
     let data = JSON.parse(e.data);
-    console.log("message received", data);
+    //console.log("message received", data);
     let messages = document.getElementById('messages')
 
     switch (data['type']) {
@@ -98,7 +102,7 @@ gameSocket.onmessage = function(e) {
             } else {
                 napotezu = userData['user2'];
             }
-            console.log(napotezu)
+            //console.log(napotezu)
             if(user === 0){
                 document.getElementById('user1').innerHTML = userData['user1']
                 document.getElementById('user2').innerHTML = userData['user2']
@@ -110,7 +114,7 @@ gameSocket.onmessage = function(e) {
 
             break;
         case 'moveToClients':
-            console.log("received toClient", data)
+            //console.log("received toClient", data)
             if (username === data['username']) ;
             else {
                 document.getElementById("guessing2").innerHTML = data['guessing']

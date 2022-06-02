@@ -118,7 +118,7 @@ class gameConsumer(WebsocketConsumer):
 
         #Poruka o potezu igraca
         elif type == 'moveToServer':
-            print(text_data)
+            #print(text_data)
             letter = text_data_json['letter']
             guessing = text_data_json['guessing']
             kor = Korisnik.objects.get(username=username)
