@@ -1,4 +1,4 @@
-# Autor: Merisa Harcinovic 0258/19
+# Autori: Merisa Harcinovic 0258/19 Magdalena Cvorovic 0670/19
 
 from django.urls import path
 from django.contrib.auth import views as auth_views

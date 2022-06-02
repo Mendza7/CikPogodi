@@ -2,25 +2,24 @@
 
 {% extends 'pages/base.html' %}
 {% block title %}
-    Cik Pogodi - Gost
+Cik Pogodi - Gost
 {% endblock %}
 
 {% block content %}
-  {% include "includes/navbar.html" %}
-  {% load static %}
+{% include "includes/navbar.html" %}
+{% load static %}
 
-  <div class="container-fluid text-center">
-    <div class="row content">
-      <div class="col-sm-2">
-      </div>
-      <div class="col-sm-8 text-left pt-5">
-        <form class="bg-white p-5" action="/gost" method="post">
-          {% csrf_token %}
-          <h2>Ime</h2>
-          <div class="form-group">
-            <label for="gostime">Gost#</label>
-            <input type="text" class="form-control" id="gostime" placeholder="Unesite ime"
-              name="gostime">
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8 text-left pt-5">
+      <form class="bg-white p-5" action="/gost" method="post">
+        {% csrf_token %}
+        <h2>Ime</h2>
+        <div class="form-group">
+          <label for="gostime">Gost#</label>
+          <input type="text" class="form-control" id="gostime" placeholder="Unesite ime" name="gostime">
 
           <button type="submit" class="btn btn-primary">Igraj</button>
           {% if error_message %}
@@ -29,15 +28,15 @@
           {% if success_message %}
           <div class="success-message">{{ success_message }}</div>
           {% endif %}
-          </div>
-        </form>
-        <div class="row text-center justify-content-center my-5">
-          <img src="{% static '/images/stickman3.png' %}" class="stickmanWelcome img-fluid" alt="logo">
         </div>
+      </form>
+      <div class="row text-center justify-content-center my-5">
+        <img src="{% static '/images/stickman3.png' %}" class="stickmanWelcome img-fluid" alt="logo">
       </div>
     </div>
   </div>
-  </div>
+</div>
+</div>
 
 {% endblock %}
 

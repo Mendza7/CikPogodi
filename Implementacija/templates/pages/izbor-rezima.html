@@ -1,34 +1,36 @@
+{#Autor: Magdalena Cvorovic 0670/19#}
 {% extends 'pages/base.html' %}
 
 {% block title %}
-    Cik Pogodi - Izbor rezima
+Cik Pogodi - Izbor rezima
 {% endblock %}
 {% block content %}
-    {% include "includes/navbar.html" %}
+{% include "includes/navbar.html" %}
 
-  {% load static %}
-   <div class="container text-center">
+{% load static %}
+<div class="container text-center">
 
-      <div class="col-12 col-md-10 offset-md-2 align-items-center">
-          <div class="row" style="margin-top: 150px">
-          <div class="col-8 offset-2  my-5 position-relative">
+    <div class="col-12 col-md-10 offset-md-2 align-items-center">
+        <div class="row" style="margin-top: 150px">
+            <div class="col-8 offset-2  my-5 position-relative">
 
-                <img src="{% static '/images/stickman5.png' %}" class="tegovi"   alt="logo">
-                <a class="btn btn-primary btn-lg btn-block fixed-buttom"  href="{% url 'trening-izbor-tezine' %}"   role="button">Trening</a>
+                <img src="{% static '/images/stickman5.png' %}" class="tegovi" alt="logo">
+                <a class="btn btn-primary btn-lg btn-block fixed-buttom" href="{% url 'trening-izbor-tezine' %}"
+                    role="button">Trening</a>
 
-          </div>
+            </div>
 
-           <div class="col-8 offset-2 position-relative">
+            <div class="col-8 offset-2 position-relative">
 
-               <img src="{% static '/images/stickman6.png' %}"  class="multi"  alt="logo">
-               <a class="btn btn-primary btn-lg btn-block"  href="{%  url 'izbor-lobija' %}" role="button">Multiplayer</a>
+                <img src="{% static '/images/stickman6.png' %}" class="multi" alt="logo">
+                <a class="btn btn-primary btn-lg btn-block" href="{%  url 'izbor-lobija' %}"
+                    role="button">Multiplayer</a>
 
 
-           </div>
-              </div>
+            </div>
+        </div>
 
-      </div>
-   </div>
+    </div>
+</div>
 
 {% endblock %}
-
