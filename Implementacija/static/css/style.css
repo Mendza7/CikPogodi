@@ -1,4 +1,5 @@
-/*Autor: Merisa Harcinovic 0258/19 */
+/*Autori: Merisa Harcinovic 0258/19 Magdalena Cvorovic 0670/19 */
+
 
 .pogodi {
   font-family: Abel;
@@ -137,13 +138,14 @@ footer {
 }
 
 .navbar {
-    height: 70px;
-    background-color: white;
-    opacity: 0.8;
+  height: 70px;
+  background-color: white;
+  opacity: 0.8;
 }
 
-.nav-link, .navbar-text a {
-  color:rgb(3 123 254)!important;
+.nav-link,
+.navbar-text a {
+  color: rgb(3 123 254) !important;
 }
 
 .error-message {
@@ -154,32 +156,33 @@ footer {
   color: #279c66
 }
 
-.tezina{
-    font-size:40px;
-    width: 100px; height: 30px;
+.tezina {
+  font-size: 40px;
+  width: 100px;
+  height: 30px;
 }
 
-.tegovi{
-position: absolute;
-width: 350px;
+.tegovi {
+  position: absolute;
+  width: 350px;
 
-height: 350px;
-left: -200px;
-top: -200px;
-
-}
-
-.multi{
-position: absolute;
-width: 350px;
-
-height: 350px;
-right: -200px;
-bottom: -200px;
+  height: 350px;
+  left: -200px;
+  top: -200px;
 
 }
 
-.kreirajLobi{
+.multi {
+  position: absolute;
+  width: 350px;
+
+  height: 350px;
+  right: -200px;
+  bottom: -200px;
+
+}
+
+.kreirajLobi {
   width: 80%;
   margin: 0;
   position: absolute;

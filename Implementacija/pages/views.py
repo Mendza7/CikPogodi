@@ -1,4 +1,4 @@
-# Autor: Merisa Harcinovic 0258/19
+# Autori: Merisa Harcinovic 0258/19 Magdalena Cvorovic 0670/19
 import random
 from string import ascii_letters
 
@@ -19,12 +19,32 @@ def manual(request):
     return render(request, 'pages/uputstvo.html')
 
 def registration(request):
+     '''
+    # Funkcija kojom se vrsi registracija korisnika
+        :param request: WSGIRequest
+        :return: HttpResponse: Renderovana html stranica
+    '''
+    '''
+    success_message: string
+    '''
     success_message = None
+    '''
+    error_message: string
+    '''
     error_message = None
 
     if request.method == 'POST':
+        '''
+        email : string
+        '''
         email = request.POST["email"]
+        '''
+        korisnickoime : string
+        '''
         korisnickoime = request.POST["korisnickoime"]
+        '''
+        lozinka : string
+        '''
         lozinka = request.POST["lozinka"]
 
         if not korisnickoime or len(models.Korisnik.objects.filter(username=korisnickoime)):
@@ -34,9 +54,13 @@ def registration(request):
         elif not lozinka:
             error_message = "Unesite lozinku"
         else:
+            '''
+            korisnik : Korisnik
+            '''
             korisnik= models.Korisnik.objects.create_user(username=korisnickoime, email=email, password=lozinka, tipKorisnika='osnovni')
 
             if korisnik:
+                #kreiranje korisnika u bazi
                 models.Igrac.create(korisnik)
 
                 success_message = "Uspesno ste se registrovali na sistem"
@@ -106,11 +130,19 @@ def kreiraj_lobi(request):
     )
 
 def rang_lista(request):
-    success_message = None
-    error_message = None
+    '''
+    # Funkcija kojom se kreira rang lista igraca
+        :param request: WSGIRequest
+        :return: HttpResponse: Renderovana html stranica
+    '''
+    '''
+        order_by: string
+    '''
     order_by = request.GET.get('order_by', '-brojpobeda')
+    '''
+        users: Igrac
+    '''
     users = models.Igrac.objects.all().order_by(order_by)
-
 
 
     return render(
@@ -118,8 +150,7 @@ def rang_lista(request):
         'pages/rang-lista.html',
         {
             "users": users,
-            "error_message": error_message,
-            "success_message": success_message
+            
         }
     )
 
@@ -234,15 +265,20 @@ def select_game(request):
     )
 
 def tezina_reci(request):
-    success_message = None
+     '''
+    # Funkcija kojom se vrsi izbor tezine reci - Lako, Srednje ili Tesko
+        :param request: WSGIRequest
+        :return: HttpResponse: Renderovana html stranica
+    '''
+   
+    '''
+    error_message: string
+    '''
     error_message = None
-
     if request.method == 'POST':
-
-        lako = request.POST["lako"]
-        srednje = request.POST["srednje"]
-        tesko = request.POST["tesko"]
-
+        '''
+        provera: list of strings
+        '''
         provera = request.POST.getlist('checks[]')
 
     return render(
@@ -250,31 +286,63 @@ def tezina_reci(request):
         'pages/trening-izbor-tezine.html',
         {
             "error_message": error_message,
-            "success_message": success_message
+            
         }
     )
 
 
 def reset_password(request):
+      '''
+    # Funkcija kojom se vrsi resetovanje loznike
+        :param request: WSGIRequest
+        :return: HttpResponse: Renderovana html stranica
+    '''
+    '''
+    success_message: string
+    '''
     success_message = None
+       '''
+    error_message: string
+    '''
+    
     error_message = None
 
     if request.method == 'POST':
+        '''
+        email: string
+        '''
         email = request.POST["email"]
 
         if not email:
             error_message = "Unesite email"
         else:
             if models.Korisnik.objects.postoji_korisnik_email(email):
-
+                '''
+                password: string
+                '''
                 password = models.Korisnik.objects.make_random_password()
+                '''
+                subject: string
+                '''
                 subject = 'Cik Pogodi | Resetovanje lozinke'
-                message = 'Vasa nova lozinka je %s' % password
+                '''
+                message: string
+                '''
+                message = 'Postovani, \n Vasa nova lozinka je %s.' % password
+                '''
+                email_from: string
+                '''
                 email_from = settings.EMAIL_HOST_USER
+                '''
+                recipient_list: list of strings
+                '''
                 recipient_list = [email]
                 send_mail(subject, message, email_from, recipient_list)
-
+                '''
+                korisnik: Korisnik
+                '''
                 korisnik = models.Korisnik.objects.filter(email=email)[0]
+                #azuriranje nove lozinke u bazi
                 korisnik.set_password(password)
                 korisnik.save()
                 success_message = "Uskoro cete dobiti email sa novom lozinkom: %s" % password
