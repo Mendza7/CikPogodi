@@ -230,6 +230,22 @@ class Trening(models.Model):
         return tren
 
 
+class Partija(models.Model):
+    idigra = models.OneToOneField(Igra, models.CASCADE, to_field='idigra', primary_key=True)
+    first_turn = models.IntegerField(default=randint(0, 1))
+
+    idrec1 = models.ForeignKey(Rec, models.DO_NOTHING, related_name="idrec1")
+    idrec2 = models.ForeignKey(Rec, models.DO_NOTHING, related_name="idrec2", null=True)
+
+    idkor1 = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, related_name="idkor1")
+    idkor2 = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, related_name="idkor2", null=True)
+
+    brojzivota1 = models.IntegerField(default=6)
+    brojzivota2 = models.IntegerField(default=6)
+
+    class Meta:
+        db_table = 'Partija'
+
 
 class Lobi(models.Model):
     LAKA = 0
@@ -259,8 +275,7 @@ class Lobi(models.Model):
         (OTVOREN,_('Otvoren lobi')),
         (U_TOKU,_('Igra u toku'))
     ]
-
-    idigra = models.OneToOneField(Igra, models.CASCADE,to_field='idigra',primary_key=True)
+    idlobi = models.BigAutoField(primary_key=True)
     ime = models.CharField(max_length=30,default="lobi_default")
     tip = models.CharField(choices=TIP,default=OSNOVNI, null = False, max_length=30)
     status = models.CharField(choices=STATUS,default=OTVOREN, max_length=30)
@@ -270,6 +285,7 @@ class Lobi(models.Model):
     idkor1 = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, related_name="%(class)s_idkor1")
     idkor2 = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, related_name="%(class)s_idkor2", null=True)
 
+    idpartija = models.ForeignKey(Partija,models.CASCADE ,related_name="%(class)s_idlobi")
 
 
     class Meta:
@@ -290,23 +306,6 @@ class Potez(models.Model):
 
 
 
-class Partija(models.Model):
-    idigra = models.OneToOneField(Igra, models.CASCADE,to_field='idigra',primary_key=True)
-    first_turn = models.IntegerField(default = randint(0,1))
-
-    idrec1 = models.ForeignKey(Rec,models.DO_NOTHING, related_name="idrec1")
-    idrec2 = models.ForeignKey(Rec,models.DO_NOTHING, related_name="idrec2")
-
-    idkor1 = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, related_name="idkor1")
-    idkor2 = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, related_name="idkor2")
-
-    brojzivota1 = models.IntegerField()
-    brojzivota2 = models.IntegerField()
-
-    idlobi = models.ForeignKey(Lobi,models.DO_NOTHING)
-
-    class Meta:
-        db_table='Partija'
 
 
 

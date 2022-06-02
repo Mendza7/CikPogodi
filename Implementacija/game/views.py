@@ -42,7 +42,9 @@ def getWords(request, game_d):
             gameid = int(game_d)
             partija = Partija.objects.get(idigra_id=gameid)
             rec1 = Rec.objects.get(idrec=partija.idrec1_id).rec
-            rec2 = Rec.objects.get(idrec=partija.idrec2_id).rec
+            rec2=None
+            if partija.idrec2:
+                rec2 = Rec.objects.get(idrec=partija.idrec2_id).rec
             return JsonResponse({
                 'user1':partija.idkor1.username,
                 'user2':partija.idkor2.username,

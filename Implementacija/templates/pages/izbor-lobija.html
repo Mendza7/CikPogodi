@@ -32,9 +32,11 @@
 
                         <div>
                         {#dodati da se dinamicki prikazuju lobiji iz baze#}
-                            {{obj.ime}} Lobi {{obj.idigra}} | {{obj.status}}
-                            <input type="submit" value="Pridruzi se"
-                               class="btn btn-primary pull-right " />
+                            {{obj.ime}} Lobi {{obj.idpartija}} | {{obj.status}}
+                            {% if obj.status == 'otvoren' %}
+                            <a href="pridruzi-se/{{ obj.idpartija.idigra.idigra }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Pridruzi se</a>
+
+                            {% endif %}
                         </div>
                         <div>
                             {{obj.idkor1.username}} / {{obj.idkor2.username}}
@@ -72,9 +74,11 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         {#dodati da se dinamicki prikazuju lobiji iz baze#}
                         <div>
-                            {{obj.ime}} Lobi {{obj.idigra}} | {{obj.status}}
-                            <input type="submit" value="Pridruzi se"
-                               class="btn btn-primary pull-right " />
+                            {{obj.ime}} Lobi {{obj.idpartija}} | {{obj.status}}
+                             {% if obj.status == 'otvoren' %}
+                            <a href="pridruzi-se/{{ obj.idpartija.idigra.idigra }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Pridruzi se</a>
+
+                            {% endif %}
                         </div>
                         <div>
                             {{obj.idkor1.username}} / {{obj.idkor2.username}}

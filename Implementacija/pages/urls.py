@@ -18,5 +18,6 @@ urlpatterns = [
     path('registracija', views.registration, name='registracija'),
     path('reset-lozinke', views.reset_password, name='reset-lozinke'),
     path('rang-lista', views.rang_lista, name='rang-lista'),
+    path('pridruzi-se/<str:idlobi>/', views.pridruziSeLobiju, name ='pridruzi-se')
 ]
 # path('upravljanje-admin', views.upravljanje_admin, name='upravljanje-admin')

@@ -3,7 +3,8 @@ import random
 from string import ascii_letters
 
 from django.core import mail
-from django.shortcuts import render,redirect
+from django.db import transaction
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth.decorators import login_required
 
@@ -76,8 +77,6 @@ def kreiraj_lobi(request):
         '''
 
         tezina = int(request.POST['checks[]'])
-        print(tezina)
-
 
         #kreiraj lobi u bazi
         '''
@@ -95,11 +94,23 @@ def kreiraj_lobi(request):
         tip = models.Lobi.OSNOVNI
         if(user.tipkorisnika == models.Korisnik.VIP):
             tip = models.Lobi.VIP
-        '''
-        lobi: Lobi
-        '''
-        lobi = models.Lobi.objects.create(idigra=igra,ime=imeLobija,tip=tip, tezina = tezina, idkor1=user )
-        lobi.save()
+        rec = request.POST['rec']
+        recbaza = models.Rec.objects.filter(rec__iexact=rec)
+        if len(recbaza):
+            recbaza = recbaza[0]
+            if recbaza.tezina != tezina:
+                print("neadekvatna tezina")
+                return render(
+                    request,
+                    'pages/kreiraj-lobi.html', {}
+                )
+            else:
+                partija = models.Partija.objects.create(idigra=igra, idrec1 = recbaza, idkor1 = request.user)
+                partija.save()
+                lobi = models.Lobi.objects.create(ime=imeLobija, tip=tip, tezina=tezina, idkor1=user, idpartija = partija)
+                lobi.save()
+                return redirect(f"/game/{partija.idigra_id}")
+
     return render(
         request,
         'pages/kreiraj-lobi.html',{}
@@ -290,7 +301,50 @@ def reset_password(request):
         }
     )
 
-#
+
+def pridruziSeLobiju(request, idlobi):
+    with transaction.atomic():
+        lobi =get_object_or_404(models.Lobi, idlobi=idlobi)
+        if (lobi.idkor1 and lobi.idkor2) or lobi.status == models.Lobi.U_TOKU:
+            return redirect('izbor-lobija')
+
+        if request.method == 'POST':
+
+            rec = request.POST['rec']
+            recbaza = models.Rec.objects.filter(rec__iexact=rec)
+            if len(recbaza):
+                recbaza = recbaza[0]
+                if recbaza.tezina != lobi.tezina:
+                    print("neadekvatna tezina")
+                    return render(
+                        request,
+                        'pages/pridruzi-se-lobiju.html', {}
+                    )
+
+                else:
+                    partija = models.Partija.objects.get(idigra = lobi.idpartija.idigra)
+                    partija.idrec2 = recbaza
+                    partija.idkor2 = request.user
+                    lobi.idkor2 = request.user
+                    lobi.status = models.Lobi.U_TOKU
+                    lobi.save()
+                    print(lobi)
+                    partija.save()
+                    return redirect(f"/game/{partija.idigra_id}")
+            else:
+                print("ne postoji rec")
+                return render(
+                    request,
+                    'pages/pridruzi-se-lobiju.html', {}
+                )
+
+        return render(
+            request,
+            'pages/pridruzi-se-lobiju.html', {}
+        )
+
+
+
 # def upravljanje_admin(request):
 #     success_message = None
 #     error_message = None
