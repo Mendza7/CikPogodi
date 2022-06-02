@@ -1,0 +1,60 @@
+{#Autor: Mehmed Harcinovic 0261/19 #}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+{% include "includes/head.html" %}
+
+<body>
+    {% include "includes/navbar.html" %}
+
+    <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-12 col-md-8 offset-md-2 text-left pt-5">
+        <h2 class="text-center"><span class="pogodi"> Trening</span></h2>
+        <div class="row mt-5">
+            <div class="col-12 d-flex align-items-center">
+
+                <img src="{% static 'images/6.png' %}" alt = "logo" id="lives6">
+                <img src="{% static 'images/5.png' %}" alt = "logo" id="lives5" hidden = "true">
+                <img src="{% static 'images/4.png' %}" alt = "logo" id="lives4" hidden = "true">
+                <img src="{% static 'images/3.png' %}" alt = "logo" id="lives3" hidden = "true">
+                <img src="{% static 'images/2.png' %}" alt = "logo" id="lives2" hidden = "true">
+                <img src="{% static 'images/1.png' %}" alt = "logo" id="lives1" hidden = "true">
+                <img src="{% static 'images/0.png' %}" alt = "logo" id="lives0" hidden = "true">
+                <p class="text-center pogodi" id="guessing">_ </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 offset-4 text-center">
+                <form id="form">
+                    <input id="tbInput" type="text" maxlength="1" placeholder="Cik" pattern="[ščćža-z]" />
+                    <input type="submit" value="Pogodi">
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-8 offset-2 text-center">
+                {% include 'includes/keyboard.html' %}
+            </div>
+            <div class="col-2" id ='messages'>
+            </div>
+        </div>
+        <div class="row text-center justify-content-center my-5">
+          <img src="{% static '/images/stickman1.png' %}" class="stickmanWelcome img-fluid" alt="logo">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{{ request.user.username|json_script:"user_username" }}
+{{ trening_id|json_script:"trening_id" }}
+{{recrec|json_script:"recrec"}}
+<script type="text/javascript" src="{% static 'js/trening.js'%}"></script>
+
+
+
+</html>

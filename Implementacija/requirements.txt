@@ -1,0 +1,6 @@
+django
+channels
+django_cors_headers
+docutils
+
+

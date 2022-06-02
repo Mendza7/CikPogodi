@@ -1,0 +1,42 @@
+{#Autor: Magdalena Cvorovic 0670/19#}
+{% extends 'pages/base.html' %}
+
+{% block title %}
+Cik Pogodi - Trening
+{% endblock %}
+{% block content %}
+{% include "includes/navbar.html" %}
+
+{% load static %}
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-12 col-md-8 offset-md-2 text-left pt-5">
+
+      <div class="row mt-5">
+
+        <div class="col-8 offset-2">
+
+          <form class="bg-white p-10" action="" method="post" style="padding: 50px">
+              {% csrf_token %}
+            <h1>Trening</h1>
+            <legend> Težina reči:</legend>
+            <div>
+              <input type="radio" id="lako" name="checks[]" checked value="0">
+              <label for="lako">Lako</label>
+              <input type="radio" id="srednje" name="checks[]" value="1">
+              <label for="srednje">Srednje</label>
+              <input type="radio" id="tesko" name="checks[]" value="2">
+              <label for="tesko">Teško</label>
+              <br><br>
+              <input class="btn btn-primary btn-lg btn-block" type="submit" role="button" value="Trening">
+
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

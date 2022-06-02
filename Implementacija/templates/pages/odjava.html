@@ -1,0 +1,23 @@
+{#Autor: Merisa Harcinovic 0258/19 #}
+
+{% extends "pages/base.html" %}
+
+{% block content %}
+    {% include "includes/navbar.html" %}
+
+    {% load static %}
+    <div class="container " style="margin-left:320px">
+        <div class="row">
+
+          <div class="col-sm-4 pt-5">
+              <h2>Odjavljeni ste.</h2>
+             <div class="border-top pt-3">
+             <small class="text-muted">
+                <a href="{% url 'prijava' %}">Prijavite se ponovo.</a>
+            </small>
+            </div>
+          </div>
+        </div>
+    </div>
+
+{% endblock content %}

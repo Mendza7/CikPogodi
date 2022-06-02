@@ -1,0 +1,22 @@
+{#Autor: Merisa Harcinovic 0258/19 #}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block header %}
+    {% include "includes/head.html" %}
+    {% endblock %}
+    <title>{% block title %}Naslov{% endblock %}</title>
+</head>
+
+<body>
+    {% block content %}
+    {% include "includes/navbar.html" %}
+    {% endblock %}
+    <footer class="container-fluid text-center">
+        <p> &copy; Cik Pogodi 2022</p>
+    </footer>
+</body>
+
+</html>
+{% include "includes/scripts.html" %}

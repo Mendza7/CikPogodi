@@ -1,0 +1,53 @@
+{#Autor: Mehmed Harcinovic 0261/19 #}
+
+{% extends 'pages/base.html' %}
+{% block title %}
+    Cik Pogodi - Pridruzi se lobiju
+{% endblock %}
+{% block content %}
+    {% include "includes/navbar.html" %}
+
+    {% load static %}
+
+    <div class="pridruziSeLobiju">
+
+        <div class="container-fluid text-center">
+        <div class="row content">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-8 text-left pt-5">
+                <form id="lobiForm" class="bg-white p-5" method="post">
+                    {% csrf_token %}
+                    <h2>Pridruzi se lobiju {{ lobi.ime }} tezina: {{ lobi.tezina }}</h2>
+                    <div class="form-group">
+                        <label id="rec">Rec: </label>
+                        <select class="form-select  form-select-lg" name="selectedRec">
+                            <option selected>Odaberi rec</option>
+                            {% for rec in reci %}
+                              <option value="{{ rec.rec }}">{{ rec.rec }}</option>
+
+                            {% endfor %}
+                        </select>
+
+                    </div>
+
+                    <input type="submit" value="Pridruzi se!"
+                           class="btn btn-primary pull-right" />
+                    {% if form.errors %}
+                        <p class=" label label-danger">
+                            Neispravno uneti podaci. Pokusajte ponovo
+                        </p>
+                    {% endif %}
+                    {% if error_msg %}
+                        <div class="error-message">{{ error_msg}}</div>
+                    {% endif %}
+                </form>
+
+          </div>
+        </div>
+
+        </div>
+    </div>
+
+
+{% endblock content %}

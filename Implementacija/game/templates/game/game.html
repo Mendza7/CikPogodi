@@ -1,0 +1,86 @@
+{#Autori:  Mehmed Harcinovic 0261/19#}
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+{% include "includes/head.html" %}
+
+<body>
+    {% include "includes/navbar.html" %}
+
+    
+
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col-4">
+                <p class="pogodi" id="user1">Player 1</p>
+            </div>
+            <div class="col-4">
+                
+            </div>
+            <div class="col-4">
+                <p class="pogodi" id="user2">Player 2</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 d-flex align-items-center justify-content-center">
+                <img src="{% static 'images/6.png' %}" alt = "logo" id="lives61">
+                <img src="{% static 'images/5.png' %}" alt = "logo" id="lives51" hidden = "true">
+                <img src="{% static 'images/4.png' %}" alt = "logo" id="lives41" hidden = "true">
+                <img src="{% static 'images/3.png' %}" alt = "logo" id="lives31" hidden = "true">
+                <img src="{% static 'images/2.png' %}" alt = "logo" id="lives21" hidden = "true">
+                <img src="{% static 'images/1.png' %}" alt = "logo" id="lives11" hidden = "true">
+                <img src="{% static 'images/0.png' %}" alt = "logo" id="lives01" hidden = "true">
+            </div>
+
+            <div class="col-4" id="messages"></div>
+            
+            <div class="col-4 d-flex align-items-center justify-content-center">
+                <img src="{% static 'images/6.png' %}" style="transform: scaleX(-1);" alt = "logo" id="lives62">
+                <img src="{% static 'images/5.png' %}" style="transform: scaleX(-1);" alt = "logo" id="lives52" hidden = "true">
+                <img src="{% static 'images/4.png' %}" style="transform: scaleX(-1);" alt = "logo" id="lives42" hidden = "true">
+                <img src="{% static 'images/3.png' %}" style="transform: scaleX(-1);" alt = "logo" id="lives32" hidden = "true">
+                <img src="{% static 'images/2.png' %}" style="transform: scaleX(-1);" alt = "logo" id="lives22" hidden = "true">
+                <img src="{% static 'images/1.png' %}" style="transform: scaleX(-1);" alt = "logo" id="lives12" hidden = "true">
+                <img src="{% static 'images/0.png' %}" style="transform: scaleX(-1);" alt = "logo" id="lives02" hidden = "true">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <form id="form">
+                    <input class = "input" id="tbInput" type="text" maxlength="1" placeholder="Cik" pattern="[ščćža-z]" />
+                    <input type="submit" id="dugme" value="Pogodi">
+                </form>
+            </div>
+            <div class="col-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 d-flex ">
+{#                <p class="text-center cik overflow-auto" id="rec1"> {{rec1}}</p>#}
+                <p class="text-center pogodi" id="guessing1">_ </p>
+            </div>
+            <div class="col-4 d-flex align-items-center justify-content-center">
+                {% include 'includes/keyboard.html' %}
+            </div>
+            <div class="col-4 d-flex  ">
+                <div>
+{#                    <p class="text-center cik overflow-auto" id="rec2"> {{rec2}}</p>#}
+                </div>
+                <br>
+                <div>
+                    <p class="text-center pogodi" id="guessing2">_ </p>
+                </div>
+            </div>
+        </div>
+           
+    </div>
+</body>
+
+{{ request.user.username|json_script:"user_username" }}
+{{ game_id|json_script:"game_id" }}
+<script type="text/javascript" src = "{% static 'js/game.js'%}"></script> 
+</html>

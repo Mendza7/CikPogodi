@@ -1,0 +1,48 @@
+{#Autor: Mehmed Harcinovic 0261/19 #}
+
+<div id = "virtualKey">
+        <input class ="btn btn-primary btn-lg" id="btna" value ="a" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnb" value ="b" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnc" value ="c" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnč" value ="č" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnć" value ="ć" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnd" value ="d" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btne" value ="e" type="button" onclick="input(this);" />
+
+        <br>
+        <input class ="btn btn-primary btn-lg" id="btnf" value ="f" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btng" value ="g" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnh" value ="h" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btni" value ="i" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnj" value ="j" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnk" value ="k" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnl" value ="l" type="button" onclick="input(this);" />
+        <br>
+        <input class ="btn btn-primary btn-lg" id="btnm" value ="m" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnn" value ="n" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btno" value ="o" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnp" value ="p" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnr" value ="r" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btns" value ="s" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnš" value ="š" type="button" onclick="input(this);" />
+        <br>
+        <input class ="btn btn-primary btn-lg" id="btnt" value ="t" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnu" value ="u" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnv" value ="v" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnz" value ="z" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btnž" value ="ž" type="button" onclick="input(this);" />
+        <input class ="btn btn-primary btn-lg" id="btndel" value ="Obriši" type="button" onclick="del();" />
+</div>
+
+<script type="text/javascript">
+    function input(e) {
+    var tbInput = document.getElementById("tbInput");
+    tbInput.value = e.value;
+    }
+
+    function del() {
+    var tbInput = document.getElementById("tbInput");
+    tbInput.value = "";
+    }
+
+</script>

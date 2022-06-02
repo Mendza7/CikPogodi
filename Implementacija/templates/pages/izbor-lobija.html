@@ -1,0 +1,101 @@
+{#Autor: Merisa Harcinovic 0258/19 #}
+{#Autor: Mehmed Harcinovic 0261/19 #}
+
+
+{% extends 'pages/base.html' %}
+
+{% block title %}
+    Cik Pogodi - Izbor lobija
+{% endblock %}
+{% block content %}
+    {% include "includes/navbar.html" %}
+
+  {% load static %}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8 text-left pt-5">
+          <div style="float: right">
+              <a class="btn btn-primary btn-lg" href="{% url 'kreiraj-lobi' %}" role="button">Kreiraj lobi</a>
+              <a class="btn btn-primary btn-lg" href="{% url 'rang-lista' %}" role="button">Rang lista</a>
+          </div>
+        <form class="bg-white p-5 my-3" action="#" method="post">
+
+            <h1>Multiplayer - Online mec</h1>
+
+          {% csrf_token %}
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <h2 style=" text-align:left;">VIP Lobiji</h2>
+                </li>
+                {% for obj in vip %}
+                    {% if obj.status != 'zavrsen' %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {#dodati da se dinamicki prikazuju lobiji iz baze#}
+                        <div>
+                            {{obj.ime}} | tezina: {{ obj.tezina }} | {{obj.status}}
+                            <a href="pridruzi-se/{{ obj.idpartija.idigra.idigra }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Pridruzi se</a>
+
+
+                        </div>
+                        <div>
+                            {{obj.idkor1.username}} / {{obj.idkor2.username}}
+                        </div>
+
+                     </li>
+                    {% endif %}
+                {% endfor %}
+
+            </ul>
+
+        </form>
+
+
+          <form class="bg-white p-5" action="#" method="post">
+
+            <ul class="list-group">
+
+                 <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                    <div>
+                        <h2>Osnovni lobiji</h2>
+                    </div>
+                    <div>
+{#                        <div class="input-group rounded">#}
+{#                            <span class="input-group-text border-0" id="dodaj">#}
+{#                            <i class="fas fa-plus-circle"></i>#}
+{#                          </span>#}
+{##}
+{#                        </div>#}
+                    </div>
+
+                 </li>
+                {% csrf_token %}
+                {% for obj in osnovni %}
+                    {% if obj.status != 'zavrsen' %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {#dodati da se dinamicki prikazuju lobiji iz baze#}
+                        <div>
+                            {{obj.ime}} | tezina: {{ obj.tezina }} | {{obj.status}}
+                            <a href="pridruzi-se/{{ obj.idpartija.idigra.idigra }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Pridruzi se</a>
+
+
+                        </div>
+                        <div>
+                            {{obj.idkor1.username}} / {{obj.idkor2.username}}
+                        </div>
+
+                     </li>
+                    {% endif %}
+                {% endfor %}
+
+            </ul>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+{% endblock %}

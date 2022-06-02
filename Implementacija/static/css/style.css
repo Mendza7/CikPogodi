@@ -1,0 +1,193 @@
+/*Autori: Merisa Harcinovic 0258/19 Magdalena Cvorovic 0670/19 */
+
+
+.pogodi {
+  font-family: Abel;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 5rem;
+  line-height: 120px;
+  /* or 83% */
+
+  text-align: center;
+  letter-spacing: -0.08em;
+
+  color: #02456B;
+
+  text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+.cik {
+  font-family: Abel;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 5rem;
+  line-height: 120px;
+  /* or 83% */
+
+  text-align: center;
+  letter-spacing: -0.08em;
+
+  color: #FF0000;
+
+  text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+  width: 60px;
+  height: 50px;
+}
+
+.stickmanUputstvo {
+
+  position: absolute;
+  width: 438px;
+  height: 410px;
+  left: 310px;
+  top: 340px;
+  object-position: 20%;
+}
+
+
+.nastaviDugme {
+  position: absolute;
+  width: 295px;
+  height: 67px;
+  left: 500px;
+  top: 350px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  color: #0F1658;
+
+}
+
+.registracija {
+  display: flex;
+  background-color: transparent;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 10px;
+
+  position: absolute;
+  width: 187px;
+  height: 47px;
+  left: 1300px;
+  top: 60px;
+
+  border: 3px solid #FD0606;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  color: #FD0606;
+}
+
+.uputstvo {
+  background-color: transparent;
+  position: absolute;
+  width: 200px;
+  height: 31px;
+  left: 330px;
+  top: 60px;
+  border: none;
+  font-family: 'Abel';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+  /* identical to box height */
+
+
+  text-decoration-line: underline;
+
+  color: #02456B;
+
+}
+
+.uputstvoTekst {
+  background-color: white;
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 40px;
+  align-items: center;
+  text-align: center;
+
+  color: #02456B;
+
+  backdrop-filter: blur(3px);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa !important;
+  /*padding: 5px;*/
+}
+
+.navbar {
+  height: 70px;
+  background-color: white;
+  opacity: 0.8;
+}
+
+.nav-link,
+.navbar-text a {
+  color: rgb(3 123 254) !important;
+}
+
+.error-message {
+  color: #e45f3e
+}
+
+.success-message {
+  color: #279c66
+}
+
+.tezina {
+  font-size: 40px;
+  width: 100px;
+  height: 30px;
+}
+
+.tegovi {
+  position: absolute;
+  width: 350px;
+
+  height: 350px;
+  left: -200px;
+  top: -200px;
+
+}
+
+.multi {
+  position: absolute;
+  width: 350px;
+
+  height: 350px;
+  right: -200px;
+  bottom: -200px;
+
+}
+
+.kreirajLobi {
+  width: 80%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
