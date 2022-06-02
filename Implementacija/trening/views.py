@@ -1,10 +1,11 @@
+#Autor : Mehmed Harčinović 0261/19
 from random import randint
 
 from django.db.models import Count
 from django.shortcuts import render
 
 # Create your views here.
-from accounts.models import Rec
+from models.models import Rec
 
 
 def Trening(request):
@@ -12,12 +13,22 @@ def Trening(request):
 
 
 
-def trening_id(request, trening_id):
-    context = {}
+def trening_id(request,tezina, trening_id):
+    """
 
-    count = Rec.objects.aggregate(count=Count('idrec'))['count']
+    :param request:ASGIRequest
+    :param tezina: string, zadata tezina
+    :param trening_id: string , id treninga
+    :return:
+    """
+    #tezina reci
+    tez = int(tezina)
+    context = {}
+    #odabir random reci iz baze
+    count = Rec.objects.filter(tezina=tez).aggregate(count=Count('idrec'))['count']
     random_ind = randint(0, count - 1)
-    rec = Rec.objects.all()[random_ind]
+    #odabrana rec
+    rec = Rec.objects.filter(tezina=tez)[random_ind]
     context['recrec'] = rec.rec
     context['trening_id'] = trening_id
 

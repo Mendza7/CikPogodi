@@ -1,3 +1,4 @@
+//Autor; Mehmed Harcinovic 0261/19
 const username = JSON.parse(document.getElementById('user_username').textContent);
 const roomName = JSON.parse(document.getElementById('trening_id').textContent);
 
@@ -31,9 +32,9 @@ treningSocket.onmessage = function(e){
     if (data.type === 'result_msg'){
         let messages = document.getElementById('messages')
 
-        messages.insertAdjacentHTML('beforeend',`<div>
-                                        <p>${data.username} pokusao ${data.message} , rezultat: ${data.succ}, preostali broj zivota: ${data.lives}</p>
-                                    </div>`)
+        // messages.insertAdjacentHTML('beforeend',`<div>
+        //                                 <p>${data.username} pokusao ${data.message} , rezultat: ${data.succ}, preostali broj zivota: ${data.lives}</p>
+        //                             </div>`)
     }
 }
 

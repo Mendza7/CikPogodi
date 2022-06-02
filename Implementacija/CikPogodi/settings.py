@@ -1,3 +1,4 @@
+#Autori:  Mehmed Harcinovic 0261/19
 """
 Django settings for CikPogodi project.
 
@@ -41,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
-    'accounts',
-    'pages',
+    'models',
+    'management',
     'trening',
     'game',
     'corsheaders',
@@ -148,7 +149,7 @@ STATICFILES_DIRS = ( os.path.join('static'), )
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL='accounts.Korisnik'
+AUTH_USER_MODEL='models.Korisnik'
 
 LOGIN_REDIRECT_URL='izbor-rezima'
 

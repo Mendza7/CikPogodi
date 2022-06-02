@@ -1,3 +1,4 @@
+#Autori:  Mehmed Harcinovic 0261/19
 """
 ASGI config for CikPogodi project.
 

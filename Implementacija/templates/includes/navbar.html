@@ -25,8 +25,15 @@
     <ul class="navbar-nav">
       <li class="nav navbar-nav navbar-right">
 
+
+
+
+
         {% if request.user.is_authenticated %}
-        {{ request.user.username }}
+        {{ request.user.username }} &nbsp;
+        {% if request.user.tipkorisnika == 'admin' %}
+            <a href="/admin/">Administracija</a> &nbsp;
+        {% endif %}
         <a href="{% url 'odjava' %}">Odjava</a>
         {% else %}
         {% if request.session.gost %}

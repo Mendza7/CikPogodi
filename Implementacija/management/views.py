@@ -1,4 +1,4 @@
-# Autori: Merisa Harcinovic 0258/19 Magdalena Cvorovic 0670/19
+# Autori: Merisa Harcinovic 0258/19,  Magdalena Cvorovic 0670/19, Mehmed Harcinovic 0261/19
 import random
 from string import ascii_letters
 
@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth.decorators import login_required
 
-from accounts import models
+from models import models
 
 from django.core.mail import send_mail
 from django.conf import settings
@@ -20,11 +20,12 @@ def manual(request):
     return render(request, 'pages/uputstvo.html')
 
 def registration(request):
-     '''
+    """
     # Funkcija kojom se vrsi registracija korisnika
         :param request: WSGIRequest
         :return: HttpResponse: Renderovana html stranica
-    '''
+    """
+
     '''
     success_message: string
     '''
@@ -80,11 +81,14 @@ def registration(request):
 
 @login_required(login_url='prijava')
 def kreiraj_lobi(request):
-    '''
+    """
     # Funkcija kojom se kreira lobi preko zadatog imena i tezine reci
         :param request: WSGIRequest
         :return: HttpResponse: Renderovana html stranica
-    '''
+    """
+
+    if request.user.tipkorisnika == models.Korisnik.ADMIN:
+        return redirect('index')
 
     if request.method == 'POST':
         '''
@@ -93,14 +97,7 @@ def kreiraj_lobi(request):
         '''
 
         imeLobija = request.POST["imeLobija"]
-        print(imeLobija)
 
-        '''
-        tezina: int 
-        Tezina reci koja se zadaje pri kreiranju
-        '''
-
-        tezina = int(request.POST['checks[]'])
 
         #kreiraj lobi u bazi
         '''
@@ -116,36 +113,38 @@ def kreiraj_lobi(request):
         tip: string
         '''
         tip = models.Lobi.OSNOVNI
+
         if(user.tipkorisnika == models.Korisnik.VIP):
             tip = models.Lobi.VIP
-        rec = request.POST['rec']
-        recbaza = models.Rec.objects.filter(rec__iexact=rec)
-        if len(recbaza):
-            recbaza = recbaza[0]
-            if recbaza.tezina != tezina:
-                print("neadekvatna tezina")
-                return render(
-                    request,
-                    'pages/kreiraj-lobi.html', {}
-                )
-            else:
-                partija = models.Partija.objects.create(idigra=igra, idrec1 = recbaza, idkor1 = request.user)
-                partija.save()
-                lobi = models.Lobi.objects.create(ime=imeLobija, tip=tip, tezina=tezina, idkor1=user, idpartija = partija)
-                lobi.save()
-                return redirect(f"/game/{partija.idigra_id}")
+        #Selektovana rec iz html strane
+        rec = request.POST['selectedRec']
+
+        #Rec objekat iz baze
+        recbaza = models.Rec.objects.get(rec__iexact=rec)
+
+        #Update lobija i partije sa njenim kreatorom.
+        partija = models.Partija.objects.create(idigra=igra, idrec1 = recbaza, idkor1 = request.user)
+        partija.save()
+        lobi = models.Lobi.objects.create(ime=imeLobija, tip=tip, tezina=recbaza.tezina, idkor1=user, idpartija = partija)
+        lobi.save()
+
+        #Prelazak na igru
+        return redirect(f"/game/{partija.idigra_id}")
 
     return render(
         request,
-        'pages/kreiraj-lobi.html',{}
+        'pages/kreiraj-lobi.html',{
+            "reci":models.Rec.objects.all(),
+        }
     )
 
+@login_required(login_url='prijava')
 def rang_lista(request):
-    '''
+    """
     # Funkcija kojom se kreira rang lista igraca
         :param request: WSGIRequest
         :return: HttpResponse: Renderovana html stranica
-    '''
+    """
     '''
         order_by: string
     '''
@@ -167,12 +166,13 @@ def rang_lista(request):
 
 
 
+@login_required(login_url='prijava')
 def izbor_lobija(request):
-    '''
+    """
     # Funkcija kojom se vrsi izbor lobija
         :param request: WSGIRequest
         :return: HttpResponse: Renderovana html stranica
-    '''
+    """
     '''
     success_message: string
     '''
@@ -206,22 +206,22 @@ def izbor_lobija(request):
 
 
 def logout_view(request):
-    '''
+    """
     # Funkcija kojom se vrsi odjava sa sistema
         :param request: WSGIRequest
         :return: HttpResponse: Renderovana html stranica
-    '''
+    """
     logout(request)
     # Redirect to a success page.
     return render(request, 'pages/odjava.html')
 
 
 def gost(request):
-    '''
+    """
     # Funkcija kojom se korisnik prijavljuje na sistem kao Gost
        :param request: WSGIRequest
        :return: HttpResponse: Renderovana html stranica
-    '''
+    """
 
     '''
     success_message: string
@@ -256,11 +256,11 @@ def gost(request):
     )
 
 def select_game(request):
-    '''
+    """
     # Funkcija kojom se vrsi izbor rezima igre - Trening ili Multiplayer
         :param request: WSGIRequest
         :return: HttpResponse: Renderovana html stranica
-    '''
+    """
     '''
     success_message: string
     '''
@@ -276,11 +276,11 @@ def select_game(request):
     )
 
 def tezina_reci(request):
-     '''
-    # Funkcija kojom se vrsi izbor tezine reci - Lako, Srednje ili Tesko
-        :param request: WSGIRequest
-        :return: HttpResponse: Renderovana html stranica
-    '''
+    """
+   # Funkcija kojom se vrsi izbor tezine reci - Lako, Srednje ili Tesko
+       :param request: WSGIRequest
+       :return: HttpResponse: Renderovana html stranica
+   """
    
     '''
     error_message: string
@@ -288,10 +288,17 @@ def tezina_reci(request):
     error_message = None
     if request.method == 'POST':
         '''
-        provera: list of strings
+        tezina: string
         '''
-        provera = request.POST.getlist('checks[]')
+        tezina = request.POST['checks[]']
 
+        if tezina!=None:
+            if request.user.username:
+                return redirect(f"trening/{tezina}/{request.user.username}")
+            elif request.session['gost']:
+                return redirect(f"trening/{tezina}/{request.session['gost']}")
+            else:
+                return redirect(f"trening/{tezina}/{''.join(random.choice(ascii_letters) for i in range(4))}")
     return render(
         request,
         'pages/trening-izbor-tezine.html',
@@ -303,16 +310,17 @@ def tezina_reci(request):
 
 
 def reset_password(request):
-      '''
+    """
     # Funkcija kojom se vrsi resetovanje loznike
         :param request: WSGIRequest
         :return: HttpResponse: Renderovana html stranica
-    '''
+    """
     '''
     success_message: string
     '''
     success_message = None
-       '''
+
+    '''
     error_message: string
     '''
     
@@ -370,45 +378,76 @@ def reset_password(request):
     )
 
 
-def pridruziSeLobiju(request, idlobi):
+@login_required(login_url='prijava')
+def pridruzi_se_lobiju(request, idlobi):
+
+    """
+    #Funkcija koja vraca formu za pridruzivanje lobiju
+    :param request: request
+    :param idlobi: idlobija kojem pokusavamo da se pridruzimo
+    :return:
+    """
+
+    if request.user.tipkorisnika==models.Korisnik.ADMIN:
+        return redirect('index')
+
     with transaction.atomic():
-        lobi =get_object_or_404(models.Lobi, idlobi=idlobi)
+        error_message = None
+        success_message = None
+        context = {
+            "error_message": error_message,
+            "success_message": success_message
+        }
+        #Lobi kojem pokusavamo da se pridruzimo
+        lobi =get_object_or_404(models.Lobi, idpartija=idlobi)
+
+        #scenario ako je korisnik koji trazi pridruzivanje lobiju vec u tom lobiju. Prosledjuje ga direktno na igru
+        if (lobi.idkor1 == request.user or lobi.idkor2 ==request.user):
+            return redirect(f"/game/{lobi.idpartija.idigra_id}")
+        #scenario da je lobi pun.
         if (lobi.idkor1 and lobi.idkor2) or lobi.status == models.Lobi.U_TOKU:
             return redirect('izbor-lobija')
 
+
+
         if request.method == 'POST':
+            #obelezena rec
+            rec = request.POST['selectedRec']
 
-            rec = request.POST['rec']
-            recbaza = models.Rec.objects.filter(rec__iexact=rec)
-            if len(recbaza):
-                recbaza = recbaza[0]
-                if recbaza.tezina != lobi.tezina:
-                    print("neadekvatna tezina")
-                    return render(
-                        request,
-                        'pages/pridruzi-se-lobiju.html', {}
-                    )
-
-                else:
-                    partija = models.Partija.objects.get(idigra = lobi.idpartija.idigra)
-                    partija.idrec2 = recbaza
-                    partija.idkor2 = request.user
-                    lobi.idkor2 = request.user
-                    lobi.status = models.Lobi.U_TOKU
-                    lobi.save()
-                    print(lobi)
-                    partija.save()
-                    return redirect(f"/game/{partija.idigra_id}")
-            else:
-                print("ne postoji rec")
+            #Rec nije uneta
+            if(rec == "Odaberi rec"):
+                #ponovno renderovanje strane sa porukom
                 return render(
                     request,
-                    'pages/pridruzi-se-lobiju.html', {}
+                    'pages/pridruzi-se-lobiju.html', {
+                        "lobi": lobi,
+                        "reci": models.Rec.objects.filter(tezina=lobi.tezina),
+                        "error_msg": "Niste uneli rec."
+                    }
                 )
+            #rec iz baze
+            recbaza = models.Rec.objects.get(rec__iexact=rec)
+            with transaction.atomic():
+                #Update partija sa novim protivnikom i novom reci.
+                partija = models.Partija.objects.get(idigra = lobi.idpartija.idigra)
+                if partija.idkor2 or partija.idrec2:
+                    return redirect('izbor-lobija')
+                partija.idrec2 = recbaza
+                partija.idkor2 = request.user
+                lobi.idkor2 = request.user
+                lobi.status = models.Lobi.U_TOKU
+                lobi.save()
+                partija.save()
+                #prelazak na igru
+                return redirect(f"/game/{partija.idigra_id}")
+
 
         return render(
             request,
-            'pages/pridruzi-se-lobiju.html', {}
+            'pages/pridruzi-se-lobiju.html', {
+                "lobi":lobi,
+                "reci":models.Rec.objects.filter(tezina=lobi.tezina)
+            }
         )
 
 
@@ -419,7 +458,7 @@ def pridruziSeLobiju(request, idlobi):
 #
 #     return render(
 #         request,
-#         'pages/korisnici-admin.html',
+#         'management/korisnici-admin.html',
 #         {
 #             "error_message": error_message,
 #             "success_message": success_message
@@ -448,7 +487,7 @@ def pridruziSeLobiju(request, idlobi):
 #             error_message = "Neispravno korisnicko ime ili lozinka"
 #             # return render(
 #             #     request,
-#             #     'pages/prijava.html',
+#             #     'management/prijava.html',
 #             #     {
 #             #         "error_message": error_message,
 #             #         "success_message": success_message

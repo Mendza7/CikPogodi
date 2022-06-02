@@ -1,50 +1,66 @@
+//Autor: Mehmed Harcinovic 0261/19
+
 const username = JSON.parse(document.getElementById('user_username').textContent);
 const roomName = JSON.parse(document.getElementById('game_id').textContent);
+
 var userData;
 var napotezu;
 var user; 
 var remaining;
 var lives = 6;
 var pogadjanje;
+var pogadjanje2;
 var success = ""
 var users;
 
 
-fetch(`http://${window.location.host}/game/get/ajax/${roomName}/`, {
-    method: "GET",
-    headers: {
-        "X-Requested-With": "XMLHttpRequest",
-    },
-})
-.then(response=>response.json())
-.then(data=>{
-    userData=data;
-    console.log(data);
-    updateNames();
-    
-});
+//Async-AJAX poziv za dohvatanje informacija
+async function getData(){
+    return fetch(`http://${window.location.host}/game/get/ajax/${roomName}/`, {
+        method: "GET",
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",
+        },
+    })
+    .then(response=>response.json())
+    .then(data=>{
+        userData=data;
+        console.log(data);
+    });
+}
 
- 
+//Ajax upit se ponavlja na 2 sekunde dok ne dodje drugi igrac
+async function waitGame() {
+    const data = await this.getData();
+    console.log("ajax", userData)
 
-function updateNames(){
-    if (username === userData['user1']){
-        user = 0;
-        tacna = userData['rec1'];
-        opponent = userData['rec2'];
-        
-        document.getElementById('rec1').innerHTML=userData['rec1']
-        document.getElementById('rec2').innerHTML=userData['rec2']
-
+    if(userData['user2']!==null) {
+        updateNames();
+        return;
     }
     else{
-        user = 1;
+        setTimeout(waitGame, 2000);
+        return;
+    }
+}
+
+waitGame();
+
+function updateNames(){
+    console.log("usr",userData)
+    if (username === userData['user1']){
+        user = 0;
         tacna = userData['rec2'];
         opponent = userData['rec1'];
 
-
-        document.getElementById('rec2').innerHTML=userData['rec1']
-        document.getElementById('rec1').innerHTML=userData['rec2']
     }
+    else if (username === userData['user2']){
+        user = 1;
+        tacna = userData['rec1'];
+        opponent = userData['rec2'];
+
+    }
+    else return;
     remaining = tacna.length
     users =[userData['user1'],userData['user2']];
 
@@ -63,33 +79,40 @@ let url = `ws://${window.location.host}/ws/socket-server/game/${roomName}/`
 
 const gameSocket = new WebSocket(url);
 
+//Prijavljivanje serveru
 gameSocket.onopen = ()=> gameSocket.send(JSON.stringify({
     'type':'initial',
     'username':username,
     'gameid':roomName
 }))
 
-gameSocket.onmessage = function(e){
+gameSocket.onmessage = function(e) {
     let data = JSON.parse(e.data);
     console.log("message received", data);
     let messages = document.getElementById('messages')
 
-    switch (data['type']){
+    switch (data['type']) {
         case 'players':
-            if (userData['user1'] === data['user1'] && userData['first']==0){
+            if (userData['user1'] === data['user1'] && userData['first'] === 0) {
                 napotezu = userData['user1'];
-            }
-            else{
+            } else {
                 napotezu = userData['user2'];
             }
             console.log(napotezu)
-            document.getElementById('user1').innerHTML=data['user1']
-            document.getElementById('user2').innerHTML=data['user2']
+            if(user === 0){
+                document.getElementById('user1').innerHTML = userData['user1']
+                document.getElementById('user2').innerHTML = userData['user2']
+            }
+            else{
+                document.getElementById('user2').innerHTML = userData['user1']
+                document.getElementById('user1').innerHTML = userData['user2']
+            }
+
             break;
         case 'moveToClients':
             console.log("received toClient", data)
-            if(username == data['username']);
-            else{
+            if (username === data['username']) ;
+            else {
                 document.getElementById("guessing2").innerHTML = data['guessing']
                 var elem = document.getElementById('lives62')
                 elem.src = '/static/images/' + data['lives'] + '.png'
@@ -98,16 +121,14 @@ gameSocket.onmessage = function(e){
             break;
         case 'gameterm':
             alert(`Game over \n Winner: ${data['winner']}`);
-            window.location.href =`http://${window.location.host}/izbor-rezima`
+            window.location.href = `http://${window.location.host}/izbor-rezima`
             break;
     }
 
-    messages.insertAdjacentHTML('beforeend',`<div>
-                                    <p>${JSON.stringify(data)}</p><br>
-                                </div>`)
+//     messages.insertAdjacentHTML('beforeend',`<div>
+//                                     <p>${JSON.stringify(data)}</p><br>
+//                                 </div>`)
 }
-
-
 
 
 waitUser();
@@ -146,7 +167,6 @@ function choose(e){
 
        success = success + message
    }
-   console.log("remaining",remaining)
 
    gameSocket.send(JSON.stringify({
        'type':'moveToServer',
@@ -157,7 +177,6 @@ function choose(e){
        'guessing':pogadjanje,
        'word':tacna,
        'success':contains,
-       
    }))
 
 
@@ -209,4 +228,4 @@ function getCookie(name) {
       }
     }
     return cookieValue;
-  }
+}

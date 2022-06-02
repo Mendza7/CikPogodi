@@ -1,3 +1,5 @@
+#Autori: Mehmed Harcinovic 0261/19
+
 from random import randint, random
 
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
@@ -12,6 +14,16 @@ from CikPogodi import settings
 class KorisnikManager(BaseUserManager):
 
     def create_user(self, username: object, email: object, password: object = None, **extra_fields: object) -> object:
+        """
+        #Kreira korisnika sa zadatim parametrima
+
+        :param username: string
+        :param email: string
+        :param password: string
+        :param extra_fields:
+        :return:
+        """
+
         if not username or not email:
             raise ValueError("korisnickoime prazno.")
 
@@ -270,10 +282,12 @@ class Lobi(models.Model):
 
     U_TOKU = 'u toku'
     OTVOREN = 'otvoren'
+    ZAVRSEN = 'zavrsen'
 
     STATUS = [
         (OTVOREN,_('Otvoren lobi')),
-        (U_TOKU,_('Igra u toku'))
+        (U_TOKU,_('Igra u toku')),
+        (ZAVRSEN,_('Zavrsena igra'))
     ]
     idlobi = models.BigAutoField(primary_key=True)
     ime = models.CharField(max_length=30,default="lobi_default")

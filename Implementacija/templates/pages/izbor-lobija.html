@@ -1,4 +1,6 @@
 {#Autor: Merisa Harcinovic 0258/19 #}
+{#Autor: Mehmed Harcinovic 0261/19 #}
+
 
 {% extends 'pages/base.html' %}
 
@@ -27,22 +29,22 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <h2 style=" text-align:left;">VIP Lobiji</h2>
                 </li>
-                {% for obj in vip%}
+                {% for obj in vip %}
+                    {% if obj.status != 'zavrsen' %}
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-
-                        <div>
                         {#dodati da se dinamicki prikazuju lobiji iz baze#}
-                            {{obj.ime}} Lobi {{obj.idpartija}} | {{obj.status}}
-                            {% if obj.status == 'otvoren' %}
+                        <div>
+                            {{obj.ime}} | tezina: {{ obj.tezina }} | {{obj.status}}
                             <a href="pridruzi-se/{{ obj.idpartija.idigra.idigra }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Pridruzi se</a>
 
-                            {% endif %}
+
                         </div>
                         <div>
                             {{obj.idkor1.username}} / {{obj.idkor2.username}}
                         </div>
 
-                    </li>
+                     </li>
+                    {% endif %}
                 {% endfor %}
 
             </ul>
@@ -71,20 +73,21 @@
                  </li>
                 {% csrf_token %}
                 {% for obj in osnovni %}
+                    {% if obj.status != 'zavrsen' %}
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         {#dodati da se dinamicki prikazuju lobiji iz baze#}
                         <div>
-                            {{obj.ime}} Lobi {{obj.idpartija}} | {{obj.status}}
-                             {% if obj.status == 'otvoren' %}
+                            {{obj.ime}} | tezina: {{ obj.tezina }} | {{obj.status}}
                             <a href="pridruzi-se/{{ obj.idpartija.idigra.idigra }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Pridruzi se</a>
 
-                            {% endif %}
+
                         </div>
                         <div>
                             {{obj.idkor1.username}} / {{obj.idkor2.username}}
                         </div>
 
-                  </li>
+                     </li>
+                    {% endif %}
                 {% endfor %}
 
             </ul>

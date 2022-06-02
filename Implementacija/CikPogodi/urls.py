@@ -1,4 +1,4 @@
-# Autor: Merisa Harcinovic 0258/19
+# Autori: Merisa Harcinovic 0258/19 Mehmed Harcinovic 0261/19
 
 """CikPogodi URL Configuration
 
@@ -21,7 +21,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
-    path('', include('pages.urls')),
+    path('', include('management.urls')),
     path('trening/', include('trening.urls')),
     path('game/',include('game.urls')),
 

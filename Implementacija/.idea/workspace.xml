@@ -3,16 +3,55 @@
   <component name="ChangeListManager">
     <list default="true" id="86d83644-7901-4422-9a75-f25a4513d6b8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CikPogodi/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/CikPogodi/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CikPogodi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CikPogodi/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CikPogodi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CikPogodi/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0002_lobi_ime_alter_lobi_idkor2_alter_partija_first_turn.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0003_lobi_tezina.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0002_alter_partija_first_turn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0003_alter_partija_first_turn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0004_alter_partija_first_turn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0005_alter_partija_first_turn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0006_alter_partija_first_turn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0007_alter_partija_first_turn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0008_alter_partija_idkor2_alter_partija_idrec2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0009_alter_partija_brojzivota1_alter_partija_brojzivota2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0010_remove_partija_idlobi_lobi_idpartija_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/game/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/consumers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/routing.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/routing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/templates/game/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/game/templates/game/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/trening.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/trening.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/pages/izbor-lobija.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/izbor-lobija.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/pages/kreiraj-lobi.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/kreiraj-lobi.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/pridruzi-se-lobiju.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/pridruzi-se-lobiju.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/rang-lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/rang-lista.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/trening-izbor-tezine.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/trening-izbor-tezine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trening/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/trening/consumers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trening/routing.py" beforeDir="false" afterPath="$PROJECT_DIR$/trening/routing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trening/templates/trening/keyboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/trening/templates/trening/keyboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trening/templates/trening/trening.html" beforeDir="false" afterPath="$PROJECT_DIR$/trening/templates/trening/trening.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trening/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/trening/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trening/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/trening/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,22 +74,25 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="29whLNe7LQb7Y0k7R71g391Y3j4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/merisaharcinovic/Desktop/CikPogodi/CikPogodi/Implementacija"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mehme/Desktop/Implementacija&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -61,6 +103,10 @@
       <updated>1654030000643</updated>
       <workItem from="1654030002090" duration="8727000" />
       <workItem from="1654096014722" duration="3533000" />
+      <workItem from="1654171643647" duration="19500000" />
+      <workItem from="1654198231205" duration="5000" />
+      <workItem from="1654199145353" duration="588000" />
+      <workItem from="1654199755347" duration="3730000" />
     </task>
     <servers />
   </component>

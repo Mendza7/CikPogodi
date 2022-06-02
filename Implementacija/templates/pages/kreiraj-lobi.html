@@ -1,4 +1,6 @@
 {#Autor: Merisa Harcinovic 0258/19 #}
+{#Autor: Mehmed Harcinovic 0261/19 #}
+
 
 {% extends 'pages/base.html' %}
 {% block title %}
@@ -23,22 +25,18 @@
                         <input id="id_imeLobija" name="imeLobija"
                                        type="text" class="form-control" placeholder="Unesite ime lobija">
 
-                        <label id="rec">Rec</label>
-                        <input id="id_rec" name="rec"
-                                   type="text" class="form-control" placeholder="Unesite rec">
+                        <label id="rec">Rec: </label>
+                        <select class="form-select  form-select-lg" name="selectedRec">
+                            <option selected>Odaberi rec</option>
+                            {% for rec in reci %}
+                              <option value="{{ rec.rec }}">{{ rec.rec }}</option>
+
+                            {% endfor %}
+                        </select>
+
                     </div>
 
-                 <legend > Težina reči:</legend>
-              <div>
-                  <input type="radio"  id="lako" name="checks[]" value="0" checked>
-                  <label for="lako" >Lako</label>
-                  <input type="radio"  id="srednje" class="" name="checks[]" value="1" >
-                  <label for="srednje" >Srednje</label>
-                  <input type="radio" id="tesko" name="checks[]" value="2" class="">
-                  <label for="tesko" >Teško</label>
-                  <br><br>
 
-              </div>
 
 
                     <input type="submit" value="Kreiraj lobi"

@@ -1,4 +1,4 @@
-# Autori: Merisa Harcinovic 0258/19 Magdalena Cvorovic 0670/19
+# Autori: Merisa Harcinovic 0258/19 Magdalena Cvorovic 0670/19 Mehmed Harcinovic 0261/19
 
 from django.urls import path
 from django.contrib.auth import views as auth_views
@@ -18,6 +18,6 @@ urlpatterns = [
     path('registracija', views.registration, name='registracija'),
     path('reset-lozinke', views.reset_password, name='reset-lozinke'),
     path('rang-lista', views.rang_lista, name='rang-lista'),
-    path('pridruzi-se/<str:idlobi>/', views.pridruziSeLobiju, name ='pridruzi-se')
+    path('pridruzi-se/<str:idlobi>/', views.pridruzi_se_lobiju, name ='pridruzi-se')
 ]
 # path('upravljanje-admin', views.upravljanje_admin, name='upravljanje-admin')
