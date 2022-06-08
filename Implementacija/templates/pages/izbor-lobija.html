@@ -34,7 +34,14 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         {#dodati da se dinamicki prikazuju lobiji iz baze#}
                         <div>
-                            {{obj.ime}} | tezina: {{ obj.tezina }} | {{obj.status}}
+                            {% if obj.tezina == 0 %}
+                                {{obj.ime}} | tezina: lako | {{obj.status}}
+                            {% elif obj.tezina == 1 %}
+                                {{obj.ime}} | tezina: srednje | {{obj.status}}
+                            {% else %}
+                                 {{obj.ime}} | tezina: tesko | {{obj.status}}
+                            {% endif %}
+
                             <a href="pridruzi-se/{{ obj.idpartija.idigra.idigra }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Pridruzi se</a>
 
 
@@ -77,7 +84,13 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         {#dodati da se dinamicki prikazuju lobiji iz baze#}
                         <div>
-                            {{obj.ime}} | tezina: {{ obj.tezina }} | {{obj.status}}
+                            {% if obj.tezina == 0 %}
+                                {{obj.ime}} | tezina: lako | {{obj.status}}
+                            {% elif obj.tezina == 1 %}
+                                {{obj.ime}} | tezina: srednje | {{obj.status}}
+                            {% else %}
+                                 {{obj.ime}} | tezina: tesko | {{obj.status}}
+                            {% endif %}
                             <a href="pridruzi-se/{{ obj.idpartija.idigra.idigra }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Pridruzi se</a>
 
 

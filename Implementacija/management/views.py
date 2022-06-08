@@ -119,7 +119,17 @@ def kreiraj_lobi(request):
         #Selektovana rec iz html strane
         rec = request.POST['selectedRec']
 
-        #Rec objekat iz baze
+        # Rec nije uneta
+        if (rec == "Odaberi rec") or len(imeLobija)==0:
+            # ponovno renderovanje strane sa porukom
+            return render(
+                request,
+                'pages/kreiraj-lobi.html', {
+                    "reci": models.Rec.objects.all(),
+                    "error_msg": "Morate uneti sve podatke."
+                }
+            )
+        # rec iz baze
         recbaza = models.Rec.objects.get(rec__iexact=rec)
 
         #Update lobija i partije sa njenim kreatorom.
@@ -238,10 +248,11 @@ def gost(request):
         Ime koje je Gost uneo
         '''
 
-        ime = request.POST["gostime"] + '_' + ''.join(random.choice(ascii_letters) for i in range(4))
+        ime = request.POST["gostime"]
         if not ime:
             error_message = "Unesite ime"
         else:
+            ime = ime + '_' + ''.join(random.choice(ascii_letters) for i in range(4))
             request.session['gost'] = ime
             return redirect('izbor-rezima')
 
@@ -364,7 +375,7 @@ def reset_password(request):
                 #azuriranje nove lozinke u bazi
                 korisnik.set_password(password)
                 korisnik.save()
-                success_message = "Uskoro cete dobiti email sa novom lozinkom: %s" % password
+                success_message = "Uskoro cete dobiti email sa novom lozinkom."
             else:
                 error_message = "Korisnik sa unetim email-om ne postoji"
 

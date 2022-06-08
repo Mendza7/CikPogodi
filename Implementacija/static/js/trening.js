@@ -90,7 +90,7 @@ form.addEventListener('submit',(e)=>{
            'lives':lives,
            'remaining':remaining
        }))
-      alert("NEMATE VISE ZIVOTA")
+      alert("NEMATE VISE ZIVOTA\nRec je bila: "+tacna)
        window.location.href =`http://${window.location.host}/izbor-rezima`
    }
    if(remaining===0){
