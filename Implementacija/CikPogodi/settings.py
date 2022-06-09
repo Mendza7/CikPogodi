@@ -1,4 +1,4 @@
-#Autori:  Mehmed Harcinovic 0261/19
+# Autori:  Mehmed Harcinovic 0261/19
 """
 Django settings for CikPogodi project.
 
@@ -13,10 +13,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 import os
+from .CikConfig import email, email_pass, db_pass
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -29,12 +29,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
     'channels',
-    
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -84,11 +83,10 @@ WSGI_APPLICATION = 'CikPogodi.wsgi.application'
 ASGI_APPLICATION = 'CikPogodi.asgi.application'
 
 CHANNEL_LAYERS = {
-    'default':{
-        'BACKEND':'channels.layers.InMemoryChannelLayer'
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
     }
 }
-
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -98,12 +96,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cikpogodi',
         'USER': 'root',
-        'PASSWORD': 'p0o9r4t5',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PASSWORD': db_pass,
+        'HOST': 'localhost',  # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -123,7 +120,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -135,7 +131,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -143,21 +138,19 @@ STATIC_ROOT = ''
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = ( os.path.join('static'), )
+STATICFILES_DIRS = (os.path.join('static'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL='models.Korisnik'
+AUTH_USER_MODEL = 'models.Korisnik'
 
-LOGIN_REDIRECT_URL='izbor-rezima'
-
-
+LOGIN_REDIRECT_URL = 'izbor-rezima'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'cikpoogodi@gmail.com'
-EMAIL_HOST_PASSWORD = 'cikpogodi1234'
+EMAIL_HOST_USER = email
+EMAIL_HOST_PASSWORD = email_pass
