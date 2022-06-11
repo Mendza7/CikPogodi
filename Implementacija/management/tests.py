@@ -158,3 +158,109 @@ class loginNeuspesno(TestCase):
         login = self.client.login(username='username55', password='passwordTest')
 
         self.assertFalse(login)
+
+
+class IndexTest(TestCase):
+    def setUp(self) -> None:
+        self.client = Client()
+    def test_view_index_url(self):
+        response = self.client.get(reverse('index'))
+        self.assertEqual(first=response.status_code, second=200)
+
+class ManualTest(TestCase):
+    def setUp(self) -> None:
+        self.client = Client()
+    def test_view_manual_url(self):
+        response = self.client.get(reverse('uputstvo'))
+        self.assertEqual(first=response.status_code, second=200)
+
+
+class PrijavaTest(TestCase):
+    def setUp(self) -> None:
+        self.client = Client()
+        self.user= Korisnik.objects.create_user('usernameTest', 'emailTest@mail.com', 'passwordTest', tipKorisnika='osnovni')
+
+    def test_view_prijava_url(self):
+        response = self.client.get(reverse('prijava'))
+        self.assertEqual(first=response.status_code, second=200)
+
+
+class KreirajLobiTest(TestCase):
+    def setUp(self) -> None:
+        self.client = Client()
+        self.user= Korisnik.objects.create_user('usernameTest', 'emailTest@mail.com', 'passwordTest', tipKorisnika='osnovni')
+        self.rec = Rec.create("recTest")
+        self.adminTest2 = Korisnik.objects.create_superuser(username='adminTest2', email='atest@test.com',
+                                                           password='admintest1234')
+    def test_kreiraj_lobi_admin(self):
+        self.client.login(username="adminTest2", password='admintest1234')
+        response=self.client.get(reverse('kreiraj-lobi'))
+        self.assertRedirects(response, reverse('index'))
+
+    def test_kreiraj_lobi_no_data(self):
+        self.client.login(username='usernameTest', password='passwordTest')
+        response = self.client.post(reverse('kreiraj-lobi'), data={'imeLobija': '', 'selectedRec': ''})
+        self.assertContains(response, "Morate uneti sve podatke.")
+
+    def test_kreiraj_lobi_no_rec(self):
+        self.client.login(username='usernameTest', password='passwordTest')
+        response = self.client.post(reverse('kreiraj-lobi'), data={'imeLobija': 'LobiTest1', 'selectedRec': 'Odaberi rec'})
+        self.assertContains(response, "Morate uneti sve podatke.")
+
+    def test_kreiraj_lobi_no_lobi(self):
+        self.client.login(username='usernameTest', password='passwordTest')
+        response = self.client.post(reverse('kreiraj-lobi'), data={'imeLobija': '', 'selectedRec': 'recTest'})
+        self.assertContains(response, "Morate uneti sve podatke.")
+
+    def test_kreiraj_lobi(self):
+        self.client.login(username='usernameTest', password='passwordTest')
+        response = self.client.post(reverse('kreiraj-lobi'), data={'imeLobija': 'lobiTest', 'selectedRec': 'recTest'})
+        self.assertEqual(Lobi.objects.count(),1)
+
+class GostTest(TestCase):
+    def setUp(self) -> None:
+        self.client = Client()
+
+    def test_gost_no_data(self):
+        response= self.client.post(reverse('gost'), data={'gostime':''})
+        self.assertContains(response, "Unesite ime")
+
+    def test_gost(self):
+        response= self.client.post(reverse('gost'), data={'gostime':'gostTest'})
+        self.assertRedirects(response, '/izbor-rezima')
+
+class SelectGameTest(TestCase):
+    def setUp(self) -> None:
+        self.client = Client()
+
+    def test_selectgame_url(self):
+        response = self.client.get(reverse('izbor-rezima'), follow=True)
+        self.assertEqual(first=response.status_code, second=200)
+
+class PridruziSeLobijuTest(TestCase):
+    def setUp(self) -> None:
+        self.adminTest = Korisnik.objects.create_superuser(username='adminTest1', email='atest@test.com', password='admintest1234')
+
+        self.u1 = Korisnik.objects.create_user(username='test', email='test@test.com', password='testic1234',
+                                               tipKorisnika='osnovni')
+        self.u2 = Korisnik.objects.create_user(username='test1', email='test1@test.com', password='testic1234',
+                                               tipKorisnika='osnovni')
+
+        self.i1 = Igra.create_igra(Igra.PVP)
+
+        self.r1 = Rec.create("rec1")
+        self.r2 = Rec.create("rec2")
+
+        self.p1 = Partija.objects.create(idigra=self.i1, idrec1=self.r1, idrec2=self.r2, idkor1=self.u1, idkor2=self.u2)
+
+        self.l1 = Lobi.objects.create(ime='TestLobi', idpartija=self.p1, idkor1=self.u1, idkor2=self.u2)
+        self.l1.save()
+
+        self.l2 = Lobi.objects.create(ime="VipTestLobi", tip=Lobi.VIP, idpartija=self.p1, idkor1=self.u1,
+                                      idkor2=self.u2)
+        self.l2.save()
+
+    def test_adminTest(self):
+        self.client.login(username="adminTest1", password="admintest1234")
+        response= self.client.get(reverse('pridruzi-se', args={'id_lobi':2}), data={})
+        self.assertRedirects(response, reverse('index'))
