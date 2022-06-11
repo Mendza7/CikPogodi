@@ -1,3 +1,4 @@
+# Autori: Merisa Harcinovic 0258/19,  Magdalena Cvorovic 0670/19, Mehmed Harcinovic 0261/19
 from django.test import TestCase,Client
 from django.urls import reverse
 
@@ -93,3 +94,67 @@ class izborLobijaTest(TestCase):
 
 
 
+class resetLozinkaTestPraznoPolje(TestCase):
+    def setUp(self)->None:
+        self.client = Client()
+
+    def tearDown(self) ->None:
+        pass
+    def test_reset(self):
+        response=self.client.post(reverse('reset-lozinke'), data = {'email': ''})
+        self.assertContains(response, "Unesite email")
+
+class resetLozinkaTestUspesno(TestCase):
+    def setUp(self)->None:
+        self.client = Client()
+        self.user = Korisnik.objects.create_user('username1', 'email@gmail.com', 'password', tipKorisnika= 'osnovni')
+
+    def test_reset_uspeh(self):
+        response=self.client.post(reverse('reset-lozinke'), data = {'email': 'email@gmail.com'})
+        self.assertContains(response, "Uskoro cete dobiti email sa novom lozinkom.")
+
+class resetLozinkaTestNeispravanEmail(TestCase):
+    def setUp(self)->None:
+        self.client = Client()
+        self.user = Korisnik.objects.create_user('username2', 'email@gmail.com', 'password', tipKorisnika= 'osnovni')
+
+    def test_reset_neuspeh(self):
+        response=self.client.post(reverse('reset-lozinke'), data = {'email': 'novi@gmail.com'})
+        self.assertContains(response, "Korisnik sa unetim email-om ne postoji")
+
+class odjavaUspesno(TestCase):
+    def setUp(self)->None:
+        self.client = Client()
+        self.user = Korisnik.objects.create_user('username3', 'emailTest@mail.com', 'passwordTest',
+                                                 tipKorisnika='osnovni')
+
+    def test_odjava(self):
+        self.client.login(username='username3', password='passwordTest')
+        response = self.client.post(reverse('odjava'))
+        self.assertContains(response, "Odjavljeni ste.")
+
+
+
+
+
+class loginUspesno(TestCase):
+    def setUp(self) -> None:
+        self.client = Client()
+        self.user = Korisnik.objects.create_user('username5', 'emailTest@mail.com', 'passwordTest',
+                                                 tipKorisnika='osnovni')
+
+    def test_login(self):
+        login = self.client.login(username='username5', password='passwordTest')
+
+        self.assertTrue(login)
+
+class loginNeuspesno(TestCase):
+    def setUp(self) -> None:
+        self.client = Client()
+        self.user = Korisnik.objects.create_user('username50', 'emailTest@mail.com', 'passwordTest',
+                                                 tipKorisnika='osnovni')
+
+    def test_login(self):
+        login = self.client.login(username='username55', password='passwordTest')
+
+        self.assertFalse(login)
