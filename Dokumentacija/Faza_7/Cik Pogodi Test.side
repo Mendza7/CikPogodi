@@ -1,0 +1,3305 @@
+{
+  "id": "629ed49f-9e8f-41e5-8109-df9a58f77672",
+  "version": "2.0",
+  "name": "Cik Pogodi Test",
+  "url": "http://127.0.0.1:8000/",
+  "tests": [{
+    "id": "470f75d6-5e0c-4055-a4c1-c532c9f97706",
+    "name": "Registracija - uspesna",
+    "commands": [{
+      "id": "c39edd89-4eb2-4246-beac-39270340d3f6",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d184461f-9fe4-47ab-93da-01cab4e8bdee",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "11df2ab3-c413-41f4-85a1-c399184160ef",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Registracija",
+      "targets": [
+        ["linkText=Registracija", "linkText"],
+        ["css=.nav > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Registracija')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/registracija')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Registracija')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "044fb76d-29dd-4c4f-8b53-01c6bf96f995",
+      "comment": "",
+      "command": "click",
+      "target": "id=korisnickoime",
+      "targets": [
+        ["id=korisnickoime", "id"],
+        ["name=korisnickoime", "name"],
+        ["css=#korisnickoime", "css:finder"],
+        ["xpath=//input[@id='korisnickoime']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "46dab6f5-aecf-4134-b963-c2900b70af3f",
+      "comment": "",
+      "command": "type",
+      "target": "id=korisnickoime",
+      "targets": [
+        ["id=korisnickoime", "id"],
+        ["name=korisnickoime", "name"],
+        ["css=#korisnickoime", "css:finder"],
+        ["xpath=//input[@id='korisnickoime']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "magdalenacvorovic"
+    }, {
+      "id": "97c644f9-e953-485a-ac1f-2f86aa2d6dd3",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa73d39d-1889-4d74-8378-a25a0d74f226",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "magdalena.cvorovic5@gmail.com"
+    }, {
+      "id": "a48a5a9a-eb3c-454c-8236-fc8c05c24413",
+      "comment": "",
+      "command": "click",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=lozinka", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb0096b4-f406-4d0a-af96-f6c320530be9",
+      "comment": "",
+      "command": "type",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=lozinka", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "magdalena123"
+    }, {
+      "id": "2d0a51c2-233f-4d12-bf39-21740ff87260",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Potvrdi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "113aeb51-1390-40d2-aef2-8cc8fc2690b4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-white",
+      "targets": [
+        ["css=.bg-white", "css:finder"],
+        ["xpath=//form[@action='/registracija']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5d3d105-f608-407e-b800-9b4d6435c221",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.success-message",
+      "targets": [
+        ["css=.success-message", "css:finder"],
+        ["xpath=//div[4]", "xpath:position"]
+      ],
+      "value": "Uspesno ste se registrovali na sistem"
+    }]
+  }, {
+    "id": "0a347ada-8d55-4598-9500-326ff1ae9a34",
+    "name": "Registracija - Korisnik postoji",
+    "commands": [{
+      "id": "583595cb-f406-4de4-b54b-97ff76c0024c",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e62963c9-979a-46ef-abe8-6db25d1a2570",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8c74027e-2571-43b5-a74d-abd33e1cd463",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Registracija",
+      "targets": [
+        ["linkText=Registracija", "linkText"],
+        ["css=.nav > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Registracija')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/registracija')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Registracija')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "009ee067-2c72-424e-833d-d7753cf16920",
+      "comment": "",
+      "command": "click",
+      "target": "id=korisnickoime",
+      "targets": [
+        ["id=korisnickoime", "id"],
+        ["name=korisnickoime", "name"],
+        ["css=#korisnickoime", "css:finder"],
+        ["xpath=//input[@id='korisnickoime']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "72be2ccb-199a-4389-9c89-0d3e8b988544",
+      "comment": "",
+      "command": "type",
+      "target": "id=korisnickoime",
+      "targets": [
+        ["id=korisnickoime", "id"],
+        ["name=korisnickoime", "name"],
+        ["css=#korisnickoime", "css:finder"],
+        ["xpath=//input[@id='korisnickoime']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "merisa"
+    }, {
+      "id": "25a1e99e-800d-4720-8304-398ff8643eca",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b4447f1-59d4-4eb8-a99c-79ae398c187b",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "merisa@gmail.com"
+    }, {
+      "id": "47cbb7cf-fef0-4f3f-b573-80c49d441390",
+      "comment": "",
+      "command": "click",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=lozinka", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6140db0-7f21-4889-90d9-e682b64cee8d",
+      "comment": "",
+      "command": "click",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=lozinka", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d25298e-d166-425d-ad03-5e4c3eaf39bd",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=lozinka", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20ff67a6-4952-4d8e-aa98-71f87d796f5b",
+      "comment": "",
+      "command": "type",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=lozinka", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "merisa123"
+    }, {
+      "id": "457e81e0-6823-4d2a-acd4-053a2b1fdf82",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Potvrdi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7875a979-63f4-4fe4-bcfc-7bd1920284e9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-white",
+      "targets": [
+        ["css=.bg-white", "css:finder"],
+        ["xpath=//form[@action='/registracija']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "db4f2562-3498-4f8c-8b62-bfb31b5d2660",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//div[4]", "xpath:position"]
+      ],
+      "value": "Neispravno korisnicko ime ili vec postoji korisnik sa tim korisnickim imenom"
+    }]
+  }, {
+    "id": "7fcb234e-8aeb-4dc3-9f45-6221bf211123",
+    "name": "Registracija - prazno polje",
+    "commands": [{
+      "id": "f0787ef6-112d-4bcc-b4a9-333e498c94ed",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "141e1367-abce-425e-a273-c9c8b155823c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "05b6f780-afb1-4d0b-af20-75be7f0ecc8a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Registracija",
+      "targets": [
+        ["linkText=Registracija", "linkText"],
+        ["css=.nav > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Registracija')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/registracija')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Registracija')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "29ea2878-2b41-4cb1-8e65-676d908905f7",
+      "comment": "",
+      "command": "click",
+      "target": "id=korisnickoime",
+      "targets": [
+        ["id=korisnickoime", "id"],
+        ["name=korisnickoime", "name"],
+        ["css=#korisnickoime", "css:finder"],
+        ["xpath=//input[@id='korisnickoime']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "274deddf-d51a-475b-8d21-a1eb543f6009",
+      "comment": "",
+      "command": "type",
+      "target": "id=korisnickoime",
+      "targets": [
+        ["id=korisnickoime", "id"],
+        ["name=korisnickoime", "name"],
+        ["css=#korisnickoime", "css:finder"],
+        ["xpath=//input[@id='korisnickoime']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "meri"
+    }, {
+      "id": "31312b1f-9aac-4ca6-858b-24508065f9f9",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bcca1c27-39d3-42f9-9c38-cde523660056",
+      "comment": "",
+      "command": "click",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=lozinka", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "300afc4e-3916-4111-b139-284ca18696bf",
+      "comment": "",
+      "command": "type",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=lozinka", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "meri123"
+    }, {
+      "id": "6e1a2c7b-c52a-4610-ad7b-fd28bdb78e8b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Potvrdi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "10cbf55d-bf1f-4ef0-9dd1-6bb55dcfe3bc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f6485a3-d2df-4e72-b1c2-18751a1899da",
+      "comment": "",
+      "command": "click",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e0a09280-7f93-4502-b826-7eb96195d403",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "08c032ef-f62f-434a-812e-40b0f97c7491",
+      "comment": "",
+      "command": "click",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2471702b-6db7-470a-85ea-43ad2fe5fd09",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//div[4]", "xpath:position"]
+      ],
+      "value": "Neispravan email ili vec postoji korisnik sa tim email-om"
+    }]
+  }, {
+    "id": "e24482a9-97bb-4c9d-9df5-b328b2708d95",
+    "name": "Login - uspesno",
+    "commands": [{
+      "id": "c4e369ca-bc5c-427e-89c5-e92360479f32",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a9aa6b0c-a587-4da9-a77f-59bc1e0cae31",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fe03a5f5-1268-4d91-bdeb-22b5e8898a14",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/prijava')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2894484b-341c-411a-9b86-95e44749ad94",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bed1edef-9b15-4a28-b861-512a6a24bd20",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "merisa"
+    }, {
+      "id": "8a0e9c38-ebf2-444e-8f95-2f8eabf1a515",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "edd185dd-dd35-484f-a185-904b24e85118",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "merisa123"
+    }, {
+      "id": "578157ca-5417-49fe-b0fd-1b89c568b2d5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Prijava']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dca711d7-e271-4f71-b57c-06be5d2e53a5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav",
+      "targets": [
+        ["css=.nav", "css:finder"],
+        ["xpath=//ul[2]/li", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e78f685e-c0a1-46d1-b321-f87d644be031",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav",
+      "targets": [
+        ["css=.nav", "css:finder"],
+        ["xpath=//ul[2]/li", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4af4821c-1339-410b-ba27-42a998987cfb",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.nav",
+      "targets": [
+        ["css=.nav", "css:finder"],
+        ["xpath=//ul[2]/li", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a621eaee-a136-4508-8339-057fc53e39de",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container-fluid:nth-child(1)",
+      "targets": [
+        ["css=.container-fluid:nth-child(1)", "css:finder"],
+        ["xpath=//div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b10b1ca7-44d9-4f13-94f9-9d007941e0ed",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container-fluid:nth-child(1)",
+      "targets": [
+        ["css=.container-fluid:nth-child(1)", "css:finder"],
+        ["xpath=//div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2322c42f-70a7-4af8-b96d-f53988f63ed4",
+      "comment": "",
+      "command": "assertText",
+      "target": "linkText=Odjava",
+      "targets": [
+        ["linkText=Odjava", "linkText"],
+        ["css=.nav > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Odjava')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/odjava')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Odjava')]", "xpath:innerText"]
+      ],
+      "value": "Odjava"
+    }, {
+      "id": "892ec15e-5179-4db8-bcd9-261033d25e56",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Odjava",
+      "targets": [
+        ["linkText=Odjava", "linkText"],
+        ["css=.nav > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Odjava')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/odjava')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Odjava')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e3611a2-1430-4c78-b083-9b6a32221e9d",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "62d0a657-3b04-4ba1-9f09-96e7d54129c0",
+    "name": "Login - korisnik ne postoji",
+    "commands": [{
+      "id": "5a2450d7-c2fe-404c-bc25-43aa64a5a7e4",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "262b29c6-a9bf-4d65-bad1-c188a6caf74f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "47666139-5e46-4194-add6-39cbda13270d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/prijava')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8bc53bda-4493-4c14-beeb-3649d53a68f4",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "180d0cd1-82e9-4030-8d2c-60626ab62add",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "nepostojece"
+    }, {
+      "id": "60cfcf0d-0d80-4f3a-84b4-c67311efe4ea",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab1b6263-7ad1-4a4d-b87f-eab653a09547",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "asdfs"
+    }, {
+      "id": "3d9053b1-7541-46e1-b1c2-3c2b9ac86ac3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Prijava']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "629d6d57-a920-4844-ae2c-96d20574ba6c",
+      "comment": "",
+      "command": "click",
+      "target": "id=login-form",
+      "targets": [
+        ["id=login-form", "id"],
+        ["css=#login-form", "css:finder"],
+        ["xpath=//form[@id='login-form']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7517f875-154b-4324-92bb-17521a4458a3",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.label",
+      "targets": [
+        ["css=.label", "css:finder"],
+        ["xpath=//form[@id='login-form']/p", "xpath:idRelative"],
+        ["xpath=//p", "xpath:position"]
+      ],
+      "value": "Neispravno korisnicko ime i/ili lozinka. Pokusajte ponovo."
+    }]
+  }, {
+    "id": "b8700bfe-12e3-46f9-a3d4-0259bd657441",
+    "name": "Login - prazno polje",
+    "commands": [{
+      "id": "cf16840a-6274-4712-badb-8207bc392e19",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed4e6b87-cc50-4b5b-a714-885c0f9d8210",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1170356a-0c1a-4381-9038-16a1921bb82e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/prijava')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "92c2126c-7c83-4d66-9ba7-ed20d6e866a3",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "624e16b4-065d-4a9c-a0fb-1fb521954f48",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "merisa"
+    }, {
+      "id": "2fc5697c-c7db-457e-a859-d8601e851bb0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Prijava']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b28720b-fddf-41e0-a742-d7cbdd0e198f",
+      "comment": "",
+      "command": "click",
+      "target": "id=login-form",
+      "targets": [
+        ["id=login-form", "id"],
+        ["css=#login-form", "css:finder"],
+        ["xpath=//form[@id='login-form']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5cd571b3-10e4-42fd-8576-635629858101",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.label",
+      "targets": [
+        ["css=.label", "css:finder"],
+        ["xpath=//form[@id='login-form']/p", "xpath:idRelative"],
+        ["xpath=//p", "xpath:position"]
+      ],
+      "value": "Neispravno korisnicko ime i/ili lozinka. Pokusajte ponovo."
+    }]
+  }, {
+    "id": "da76d6aa-0804-4871-ae07-aa9308a199a7",
+    "name": "Reset lozinke - uspesno",
+    "commands": [{
+      "id": "ed7f4326-af14-4818-a84b-8ccc832e08a6",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dbc1a5e9-06d9-496a-b6ba-63ccd7c84b75",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0446c059-9ea4-47bb-8e3f-c93b5fff0acc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/prijava')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "de5adb64-fe72-4e05-b342-dd321e4adace",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Zaboravili ste lozinku?",
+      "targets": [
+        ["linkText=Zaboravili ste lozinku?", "linkText"],
+        ["css=a:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Zaboravili ste lozinku?')]", "xpath:link"],
+        ["xpath=//form[@id='login-form']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/reset-lozinke')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Zaboravili ste lozinku?')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc3173a1-afbb-4efb-bd36-04cec8ebf2c8",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d67c0c4-e2c3-45d3-b45f-c132bff1a58b",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "magdalena.cvorovic5@gmail.com"
+    }, {
+      "id": "a939f939-3493-4799-b29a-3498aaad7139",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Potvrdi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e25fc7c-3b37-4057-bc00-75603d781856",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.success-message",
+      "targets": [
+        ["css=.success-message", "css:finder"],
+        ["xpath=//form/div[2]", "xpath:position"]
+      ],
+      "value": "Uskoro cete dobiti email sa novom lozinkom."
+    }]
+  }, {
+    "id": "7fb87534-adb9-4284-8093-40577a461834",
+    "name": "Reset lozinke - neuspesno ",
+    "commands": [{
+      "id": "9544263c-fae6-422d-a21c-6437eab9a460",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0c598ed8-334b-4d4e-b355-5d0824992586",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c6aa0a32-09b8-496c-bd39-3eba9fa59364",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/prijava')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "77b20418-0303-46e4-b0d4-e677617e10ab",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Zaboravili ste lozinku?",
+      "targets": [
+        ["linkText=Zaboravili ste lozinku?", "linkText"],
+        ["css=a:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Zaboravili ste lozinku?')]", "xpath:link"],
+        ["xpath=//form[@id='login-form']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/reset-lozinke')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Zaboravili ste lozinku?')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "742940cf-b107-448f-93f2-6dba0059942e",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac7e5f45-f607-4c9f-9a5f-366fa42d8042",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "nepostojeci@gmail.com"
+    }, {
+      "id": "8fbe45df-1019-4504-9446-8e3a7e5e2f51",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Potvrdi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf9c53bd-2248-45ad-a09f-738ecc62a4da",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-white",
+      "targets": [
+        ["css=.bg-white", "css:finder"],
+        ["xpath=//form[@action='/reset-lozinke']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "039cad11-41ff-4cb1-9801-141d716a70e5",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//form/div[2]", "xpath:position"]
+      ],
+      "value": "Korisnik sa unetim email-om ne postoji"
+    }]
+  }, {
+    "id": "9e2efb33-bbdd-4125-a136-7f7e5f22c88e",
+    "name": "Reset lozinke - prazno polje",
+    "commands": [{
+      "id": "a6697224-fec9-4b8d-914d-22bbda3963fb",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5da76819-3c8c-4a33-8ded-80ca962db0c1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4e010eea-a05e-4cc5-9f3b-e271fb4d30f9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/prijava')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d814febd-c036-42f0-9047-31e25c126647",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Zaboravili ste lozinku?",
+      "targets": [
+        ["linkText=Zaboravili ste lozinku?", "linkText"],
+        ["css=a:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Zaboravili ste lozinku?')]", "xpath:link"],
+        ["xpath=//form[@id='login-form']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/reset-lozinke')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Zaboravili ste lozinku?')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea025f3b-2fb0-47b0-9f1c-b0925c89d835",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Potvrdi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b914592-e4c5-48d1-b77d-a6e25edc3f14",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-white",
+      "targets": [
+        ["css=.bg-white", "css:finder"],
+        ["xpath=//form[@action='/reset-lozinke']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "24de8646-3d35-4681-a8d1-06ce8ce07e15",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//form/div[2]", "xpath:position"]
+      ],
+      "value": "Unesite email"
+    }]
+  }, {
+    "id": "558dbd62-38eb-4b08-aac5-9dbd3c795626",
+    "name": "Odjava - uspesno",
+    "commands": [{
+      "id": "a56f65df-384f-4535-8168-4717a3501b84",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e9e0afe2-879f-428a-9098-8a1acbc4595f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "feca3d38-f393-44e1-be5e-fd2e9a450ee6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/prijava')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a09cc41-2810-4c10-834e-231bca603259",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab364c65-c707-440a-9594-e5c97ad460aa",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "merisa"
+    }, {
+      "id": "d2b03698-aea5-4e0d-8ffe-1603951ebb76",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "11db094b-8377-477a-b0cc-e58712fb09bd",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "merisa123"
+    }, {
+      "id": "76ece5d2-c5e1-4a9f-bfeb-847a96318a63",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Prijava']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d0654abe-06a0-4833-834a-55648c09b328",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Odjava",
+      "targets": [
+        ["linkText=Odjava", "linkText"],
+        ["css=.nav > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Odjava')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/odjava')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Odjava')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0b18d95-caa1-4072-a619-f3f9e0c39b8e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.vsc-initialized",
+      "targets": [
+        ["css=.vsc-initialized", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f700e369-395e-40f0-a623-769c9a9cb862",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Odjavljeni ste.')]", "xpath:innerText"]
+      ],
+      "value": "Odjavljeni ste."
+    }]
+  }, {
+    "id": "1a54773f-0b3f-4b24-b41c-f3b1d09da6cf",
+    "name": "Uputstvo - uspesno",
+    "commands": [{
+      "id": "e3847341-cb96-489c-ab8c-c828fd02a8e2",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3fab6276-bf8c-4066-b598-3331deecfc72",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0f606beb-0ca4-4c2e-a96f-c092468cba66",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Uputstvo",
+      "targets": [
+        ["linkText=Uputstvo", "linkText"],
+        ["css=.mr-auto > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Uputstvo')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/uputstvo')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Uputstvo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ad439151-59d7-426d-a00e-3196a7752cb1",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=.uputstvoTekst",
+      "targets": [
+        ["css=.uputstvoTekst", "css:finder"],
+        ["xpath=//p", "xpath:position"]
+      ],
+      "value": "876,335"
+    }, {
+      "id": "9b8e4873-42fc-456a-b099-d7e12fe24e78",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.uputstvoTekst",
+      "targets": [
+        ["css=.uputstvoTekst", "css:finder"],
+        ["xpath=//p", "xpath:position"]
+      ],
+      "value": "876,335"
+    }, {
+      "id": "e3c7baad-1005-4d04-a128-a8de7f357bcd",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=.uputstvoTekst",
+      "targets": [
+        ["css=.uputstvoTekst", "css:finder"],
+        ["xpath=//p", "xpath:position"]
+      ],
+      "value": "876,335"
+    }, {
+      "id": "39d338e5-2dc1-4928-8ce7-56824c1d1318",
+      "comment": "",
+      "command": "click",
+      "target": "css=.uputstvoTekst",
+      "targets": [
+        ["css=.uputstvoTekst", "css:finder"],
+        ["xpath=//p", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ad79cf23-b2e9-46c1-898e-c93cc08e9aaf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-sm-8",
+      "targets": [
+        ["css=.col-sm-8", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "25388281-712f-4695-b931-640755a87377",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.uputstvoTekst",
+      "targets": [
+        ["css=.uputstvoTekst", "css:finder"],
+        ["xpath=//p", "xpath:position"]
+      ],
+      "value": "Igra „Čik pogodi” funkcioniše tako što se nasumično ili odabirom zadaje reč za pogađanje, a igrač treba da pogodi o kojoj reči se radi.\\nReč za pogađanje je reprezentovana crticama iza kojih se kriju slova. Igrač redom bira slova za koja misli da se nalaze u reči.\\nAko igrač pogodi slovo koje se nalazi u reči, slovo se pojavljuje na svim tačnim pozicijama i igrač pogađa koja je reč u pitanju ili bira sledeće slovo. Ukoliko u reči ne postoji zadato slovo, igraču se smanjuje broj šansi za pogađanje.\\nAko igrač pogodi reč, igra se završava uspešno, u suprotnom neuspešno."
+    }]
+  }, {
+    "id": "2e7d0aed-f76f-4c18-bad3-6b8e33c47587",
+    "name": "Pocetna - uspesno",
+    "commands": [{
+      "id": "2cc592a9-9cb3-4927-94b0-cf2489025621",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9d620348-28d2-48ab-976d-1b3b300a4df2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8f017066-e612-431e-a257-109adab3f02c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Uputstvo",
+      "targets": [
+        ["linkText=Uputstvo", "linkText"],
+        ["css=.mr-auto > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Uputstvo')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/uputstvo')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Uputstvo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "95b1e2be-622e-4677-825b-67cbc4f27338",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-item:nth-child(1) > .nav-link",
+      "targets": [
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=(//a[contains(@href, '/')])[2]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d8516046-9c6c-4f79-8d9d-345b39973760",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.pogodi",
+      "targets": [
+        ["css=.pogodi", "css:finder"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' POGODI')]", "xpath:innerText"]
+      ],
+      "value": "POGODI"
+    }]
+  }, {
+    "id": "9e04157d-dfe1-4d35-947b-3facc89fd7f9",
+    "name": "Nastavi kao Gost - uspesno",
+    "commands": [{
+      "id": "cc3ee497-dd74-4d4b-a3f4-0b6cf0c1490e",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c88865c3-45b5-401e-8707-c614d2645730",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e5ed6f89-efb4-475d-b026-1a6dd921f34f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Nastavi kao gost",
+      "targets": [
+        ["linkText=Nastavi kao gost", "linkText"],
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Nastavi kao gost')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/gost')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Nastavi kao gost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "494d133d-6ecc-4572-a4fb-8928f54c83f3",
+      "comment": "",
+      "command": "click",
+      "target": "id=gostime",
+      "targets": [
+        ["id=gostime", "id"],
+        ["name=gostime", "name"],
+        ["css=#gostime", "css:finder"],
+        ["xpath=//input[@id='gostime']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7938580-6d50-4343-9162-12b2e08f72dd",
+      "comment": "",
+      "command": "type",
+      "target": "id=gostime",
+      "targets": [
+        ["id=gostime", "id"],
+        ["name=gostime", "name"],
+        ["css=#gostime", "css:finder"],
+        ["xpath=//input[@id='gostime']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "MesaGost"
+    }, {
+      "id": "66306759-ad6f-4239-ad00-92a8cf8d39d8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Igraj')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "12fd1a68-00a9-467e-bbca-174caf48cf07",
+      "comment": "",
+      "command": "assertText",
+      "target": "linkText=Trening",
+      "targets": [
+        ["linkText=Trening", "linkText"],
+        ["css=.fixed-buttom", "css:finder"],
+        ["xpath=//a[contains(text(),'Trening')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/trening-izbor-tezine')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Trening')]", "xpath:innerText"]
+      ],
+      "value": "Trening"
+    }]
+  }, {
+    "id": "b1a3ae3f-2a8d-4ee0-b212-f3883ef3d067",
+    "name": "Nastavi kao Gost - neuspesno",
+    "commands": [{
+      "id": "ff18771e-f15d-4c9b-9de0-9d447a633732",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2c5a4c8d-7d45-42b0-865d-bd1815e39f8e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b43cd9db-8356-40de-aa66-ab520c1818f7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Nastavi kao gost",
+      "targets": [
+        ["linkText=Nastavi kao gost", "linkText"],
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Nastavi kao gost')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/gost')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Nastavi kao gost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "560ed948-0f3b-4d13-843c-22c8c02e38c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Igraj')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e7533df5-179a-4af7-a084-45af4faa145a",
+    "name": "Nastavi kao Gost - multiplayer zahteva prijavu",
+    "commands": [{
+      "id": "092ab8d5-ae0a-4f73-9689-b5e26e075dd9",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "46ef166f-613a-4e02-b45e-6f7fe8dc8a2b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b8c23c9-e3a5-4483-ac06-c3d620517707",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Nastavi kao gost",
+      "targets": [
+        ["linkText=Nastavi kao gost", "linkText"],
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Nastavi kao gost')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/gost')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Nastavi kao gost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1ab7e1c1-3120-499d-a8d4-e75f67eeda57",
+      "comment": "",
+      "command": "click",
+      "target": "id=gostime",
+      "targets": [
+        ["id=gostime", "id"],
+        ["name=gostime", "name"],
+        ["css=#gostime", "css:finder"],
+        ["xpath=//input[@id='gostime']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c8a7e28-549f-45d9-91db-ba0d1089f76f",
+      "comment": "",
+      "command": "type",
+      "target": "id=gostime",
+      "targets": [
+        ["id=gostime", "id"],
+        ["name=gostime", "name"],
+        ["css=#gostime", "css:finder"],
+        ["xpath=//input[@id='gostime']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "MesaGost"
+    }, {
+      "id": "2126462b-663a-4faa-8e31-53cd2fd8f48c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Igraj')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b2a331c-2564-4e45-ae56-38d186c5a272",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Multiplayer",
+      "targets": [
+        ["linkText=Multiplayer", "linkText"],
+        ["css=.col-8:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Multiplayer')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/izbor-lobija')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Multiplayer')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "613b9386-fa1a-4a19-821e-5fdd315a2b0a",
+      "comment": "",
+      "command": "click",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//form[@id='login-form']/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Prijava')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fbe5cbef-f4f0-4f90-aec2-5ec9512bfbc3",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//form[@id='login-form']/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Prijava')]", "xpath:innerText"]
+      ],
+      "value": "Prijava"
+    }]
+  }, {
+    "id": "5a88ebe2-8cea-40c4-9d2c-03ce5c3ebdfb",
+    "name": "Trening Gost - uspesno",
+    "commands": [{
+      "id": "5f6be6c3-a793-46d9-ac4a-c9df39080643",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fe54b863-01cb-4f03-b203-9a91f0825e5e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "55218d92-697e-4f5a-bfe7-ba8d2c2e774b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Nastavi kao gost",
+      "targets": [
+        ["linkText=Nastavi kao gost", "linkText"],
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Nastavi kao gost')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/gost')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Nastavi kao gost')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b38ada5b-b75c-40b9-90d0-9886cc8597e2",
+      "comment": "",
+      "command": "click",
+      "target": "id=gostime",
+      "targets": [
+        ["id=gostime", "id"],
+        ["name=gostime", "name"],
+        ["css=#gostime", "css:finder"],
+        ["xpath=//input[@id='gostime']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8dc1fb29-e46a-43d3-9b17-122ba853fea8",
+      "comment": "",
+      "command": "type",
+      "target": "id=gostime",
+      "targets": [
+        ["id=gostime", "id"],
+        ["name=gostime", "name"],
+        ["css=#gostime", "css:finder"],
+        ["xpath=//input[@id='gostime']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "MesaGost"
+    }, {
+      "id": "33ab2ac7-f8f8-4875-9477-7772a57bad9f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Igraj')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c7aa58d-aa07-42d2-8257-7fd771324473",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Trening",
+      "targets": [
+        ["linkText=Trening", "linkText"],
+        ["css=.fixed-buttom", "css:finder"],
+        ["xpath=//a[contains(text(),'Trening')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/trening-izbor-tezine')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Trening')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b496e06e-deee-45ce-8550-9d074fdc5378",
+      "comment": "",
+      "command": "click",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Trening')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d1f4b6a3-3765-4005-ac22-9955c5bd92df",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Trening')]", "xpath:innerText"]
+      ],
+      "value": "Trening"
+    }, {
+      "id": "b66fbad1-a839-4169-8522-72137ab5ccc7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Trening']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b65cb4f2-07e2-432d-a9b8-896e80c1b0b5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-12 > .text-center:nth-child(1)",
+      "targets": [
+        ["css=.col-12 > .text-center:nth-child(1)", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Trening')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "186fd118-2f71-4041-91d3-b1a21887c733",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.pogodi:nth-child(1)",
+      "targets": [
+        ["css=.pogodi:nth-child(1)", "css:finder"],
+        ["xpath=//h2/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Trening')]", "xpath:innerText"]
+      ],
+      "value": "Trening"
+    }, {
+      "id": "0bfc2b23-72cf-48b8-ae69-a5b53385ea3b",
+      "comment": "",
+      "command": "click",
+      "target": "id=btna",
+      "targets": [
+        ["id=btna", "id"],
+        ["css=#btna", "css:finder"],
+        ["xpath=//input[@id='btna']", "xpath:attributes"],
+        ["xpath=//div[@id='virtualKey']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "620a9353-a487-4e35-8999-072be8d2101e",
+      "comment": "",
+      "command": "click",
+      "target": "css=#form > input:nth-child(2)",
+      "targets": [
+        ["css=#form > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@value='Pogodi']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "3ec034bd-7857-474f-a2ac-e1baee21d866",
+    "name": "Kreiraj lobi - uspesno",
+    "commands": [{
+      "id": "e06986cb-1826-4088-9a90-65c8eaa520ca",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ccef243f-9c8c-410a-add8-a6e3df0354b3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "79df5359-919c-4214-ba36-3dd820905f87",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/prijava')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fdca340d-c77a-4f4b-96fd-7e3a6ec6d050",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "322af69b-d463-4507-9ec1-d95ea55b77a2",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "magdalena"
+    }, {
+      "id": "739317cd-f71a-4f3d-b91f-65f658d9a442",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "magdalena123"
+    }, {
+      "id": "8ee557ac-e6e6-44a3-b976-34e2bb5c72ca",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Prijava']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "280719af-7a67-481b-b083-920d5bb2e083",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Multiplayer",
+      "targets": [
+        ["linkText=Multiplayer", "linkText"],
+        ["css=.col-8:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Multiplayer')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/izbor-lobija')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Multiplayer')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7e970e4-86f4-4b1d-ae73-493c21da8d5c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kreiraj lobi",
+      "targets": [
+        ["linkText=Kreiraj lobi", "linkText"],
+        ["css=.col-sm-8 > div > .btn:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Kreiraj lobi')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/kreiraj-lobi')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kreiraj lobi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c2da62ed-7e93-4719-8954-df174da83ab0",
+      "comment": "",
+      "command": "click",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//form[@id='lobiForm']/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Kreiraj lobi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5f4fd4c-8fc5-4a3e-9f17-620714a531ae",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//form[@id='lobiForm']/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Kreiraj lobi')]", "xpath:innerText"]
+      ],
+      "value": "Kreiraj lobi"
+    }, {
+      "id": "f17a03ba-a80f-4b25-8e01-2d0915dd278b",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_imeLobija",
+      "targets": [
+        ["id=id_imeLobija", "id"],
+        ["name=imeLobija", "name"],
+        ["css=#id_imeLobija", "css:finder"],
+        ["xpath=//input[@id='id_imeLobija']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "23ff8b74-f5f8-44ac-ac40-1b8cb55bc064",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_imeLobija",
+      "targets": [
+        ["id=id_imeLobija", "id"],
+        ["name=imeLobija", "name"],
+        ["css=#id_imeLobija", "css:finder"],
+        ["xpath=//input[@id='id_imeLobija']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Megi lobi"
+    }, {
+      "id": "8830b7e7-10e4-43c0-9c34-f55441f53d57",
+      "comment": "",
+      "command": "click",
+      "target": "name=selectedRec",
+      "targets": [
+        ["name=selectedRec", "name"],
+        ["css=.form-select", "css:finder"],
+        ["xpath=//select[@name='selectedRec']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "046c3f22-4a57-4ad6-91c3-677e055bfc8b",
+      "comment": "",
+      "command": "select",
+      "target": "name=selectedRec",
+      "targets": [],
+      "value": "label=pcela"
+    }, {
+      "id": "ad979019-7b61-47ba-8072-1a134bb1b1ae",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Kreiraj lobi']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "98ad4c7f-ff89-444a-bcd9-62d088811d37",
+      "comment": "",
+      "command": "click",
+      "target": "id=user1",
+      "targets": [
+        ["id=user1", "id"],
+        ["css=#user1", "css:finder"],
+        ["xpath=//p[@id='user1']", "xpath:attributes"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'Player 1')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d94bbb6d-2d1e-4f8d-a6e3-a709ad749f28",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=user1",
+      "targets": [
+        ["id=user1", "id"],
+        ["css=#user1", "css:finder"],
+        ["xpath=//p[@id='user1']", "xpath:attributes"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'Player 1')]", "xpath:innerText"]
+      ],
+      "value": "Player 1"
+    }, {
+      "id": "1a6b34e2-fedc-4c0e-912b-bda222975137",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Odjava",
+      "targets": [
+        ["linkText=Odjava", "linkText"],
+        ["css=.nav > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Odjava')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/odjava')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Odjava')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "77dc4885-2ac7-46e8-b1b8-7f3ebb534169",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "c56bc56d-e143-4518-a96b-0a6bed8e2507",
+    "name": "Kreiraj lobi - neuspesno ime prazno",
+    "commands": [{
+      "id": "ff6dfba8-4b84-4099-9a8e-fc92e8c798dd",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/prijava",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d1db11da-8d66-496d-90dc-362608f8ccbe",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "892cf606-8e20-4395-9e34-5ca0669ff510",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6da29b45-ff02-47e7-b29a-db1ecbfa6e28",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "merisa"
+    }, {
+      "id": "e6f16a78-cc48-4671-9a52-b56cb0f59daf",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "74026cd3-2bca-4654-8102-8113a695fbb1",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "merisa123"
+    }, {
+      "id": "1e05f2f7-7ddd-4c09-bc89-dd202ad17f84",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Prijava']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8550b0b1-94c6-43f6-bc09-91e74f85f28e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Multiplayer",
+      "targets": [
+        ["linkText=Multiplayer", "linkText"],
+        ["css=.col-8:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Multiplayer')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/izbor-lobija')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Multiplayer')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2a9b037-a5df-49a6-bd37-35c64de3adf9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kreiraj lobi",
+      "targets": [
+        ["linkText=Kreiraj lobi", "linkText"],
+        ["css=.col-sm-8 > div > .btn:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Kreiraj lobi')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/kreiraj-lobi')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kreiraj lobi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bec0dc31-4ac8-42b5-ad28-6e21e8fa0092",
+      "comment": "",
+      "command": "click",
+      "target": "name=selectedRec",
+      "targets": [
+        ["name=selectedRec", "name"],
+        ["css=.form-select", "css:finder"],
+        ["xpath=//select[@name='selectedRec']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ade90ab7-59fa-4024-98c7-1e3656dcfb68",
+      "comment": "",
+      "command": "select",
+      "target": "name=selectedRec",
+      "targets": [],
+      "value": "label=knjiga"
+    }, {
+      "id": "adf4ff48-8afc-42b6-9cc3-39a473b0d3d5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Kreiraj lobi']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "227da73c-698d-4af6-ac04-288ba2968599",
+    "name": "Kreiraj lobi - neuspesno rec prazna",
+    "commands": [{
+      "id": "ee0d96e8-c173-467b-9d81-2b1103cd3a00",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c0f495e6-61ad-4d72-a41c-f912031a48b6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b12e516d-4664-4c42-b2be-b0ddae760321",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/prijava')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4729a367-6b43-45e5-8082-b4acafcfa253",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "069c406b-3090-441c-87c8-630786b1f74b",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "merisa"
+    }, {
+      "id": "25835cd1-33cb-44f5-b32f-85b254dfdc85",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d0b6415d-cf1f-483f-ac2f-1e671208ad1b",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "merisa123"
+    }, {
+      "id": "4e8ca846-9a57-47d1-8e06-1960127f4a4d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Prijava']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bbb354f0-6454-4ee0-98b4-88b14623ac94",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Multiplayer",
+      "targets": [
+        ["linkText=Multiplayer", "linkText"],
+        ["css=.col-8:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Multiplayer')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/izbor-lobija')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Multiplayer')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f872e8c-3897-4af9-903f-44acec511df2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kreiraj lobi",
+      "targets": [
+        ["linkText=Kreiraj lobi", "linkText"],
+        ["css=.col-sm-8 > div > .btn:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Kreiraj lobi')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/kreiraj-lobi')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kreiraj lobi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "295ecce9-51cd-434e-92af-3c64e8ee7dc0",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_imeLobija",
+      "targets": [
+        ["id=id_imeLobija", "id"],
+        ["name=imeLobija", "name"],
+        ["css=#id_imeLobija", "css:finder"],
+        ["xpath=//input[@id='id_imeLobija']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5195705-4071-42ee-b610-42cda0371f21",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_imeLobija",
+      "targets": [
+        ["id=id_imeLobija", "id"],
+        ["name=imeLobija", "name"],
+        ["css=#id_imeLobija", "css:finder"],
+        ["xpath=//input[@id='id_imeLobija']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Meri lobi"
+    }, {
+      "id": "f10ab848-60a2-477b-ae07-716ba7dec88e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Kreiraj lobi']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "8b2c19c1-90a3-481c-9639-eea8b4467031",
+    "name": "Pridruzi se lobiju - uspesno",
+    "commands": [{
+      "id": "526a05f0-05ab-46e0-a37f-196613ee05d3",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/prijava",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e641c790-545d-4751-be16-ee80b48aa65b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6bb3d217-17bf-46b7-879b-115757b2a6fd",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "36bcf50f-aea5-48d1-8e3b-2cd2c0607344",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "mesa"
+    }, {
+      "id": "850d22f3-ed71-4e37-b3a7-029edf10812d",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "feefbabd-fcc5-4071-9c66-4c7881766632",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "mesa"
+    }, {
+      "id": "ab45911f-fb02-4cfe-8ddb-67f4dd904a81",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Prijava']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e12203d-17cb-4b5a-8938-a43275bc8af3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Multiplayer",
+      "targets": [
+        ["linkText=Multiplayer", "linkText"],
+        ["css=.col-8:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Multiplayer')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/izbor-lobija')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Multiplayer')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "50bbc7a8-f8aa-4be0-ab69-33a5220585e4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group:nth-child(3) > .list-group-item:nth-child(3) .btn",
+      "targets": [
+        ["css=.list-group:nth-child(3) > .list-group-item:nth-child(3) .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Pridruzi se')])[2]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'pridruzi-se/14')]", "xpath:href"],
+        ["xpath=//li[3]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d5f8bbd1-42d4-4183-87c4-4e69190f905a",
+      "comment": "",
+      "command": "click",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//form[@id='lobiForm']/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Pridruzi se lobiju Magdalenin lobi tezina: 0')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ca93f24-cb85-4deb-967b-936de706b21a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group",
+      "targets": [
+        ["css=.form-group", "css:finder"],
+        ["xpath=//form[@id='lobiForm']/div", "xpath:idRelative"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e62fe68-e113-464e-9eea-7da900624aad",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=rec",
+      "targets": [
+        ["id=rec", "id"],
+        ["css=#rec", "css:finder"],
+        ["xpath=//label[@id='rec']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/div/label", "xpath:idRelative"],
+        ["xpath=//label", "xpath:position"],
+        ["xpath=//label[contains(.,'Rec:')]", "xpath:innerText"]
+      ],
+      "value": "Rec:"
+    }, {
+      "id": "6da65c3f-9817-4dcc-8de1-d841179831b6",
+      "comment": "",
+      "command": "click",
+      "target": "name=selectedRec",
+      "targets": [
+        ["name=selectedRec", "name"],
+        ["css=.form-select", "css:finder"],
+        ["xpath=//select[@name='selectedRec']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "536a3ab5-eead-45cf-9549-ee96ed9e9c1f",
+      "comment": "",
+      "command": "select",
+      "target": "name=selectedRec",
+      "targets": [],
+      "value": "label=oblak"
+    }, {
+      "id": "66e8f796-6544-41d3-bf6c-8254ef9fd11f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Pridruzi se!']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4bb5b557-f2ac-4192-92fe-6c75b033daf5",
+      "comment": "",
+      "command": "click",
+      "target": "id=user1",
+      "targets": [
+        ["id=user1", "id"],
+        ["css=#user1", "css:finder"],
+        ["xpath=//p[@id='user1']", "xpath:attributes"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'Player 1')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2bb23d4-da3b-4516-9680-09dddbb3fa76",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=user1",
+      "targets": [
+        ["id=user1", "id"],
+        ["css=#user1", "css:finder"],
+        ["xpath=//p[@id='user1']", "xpath:attributes"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'Player 1')]", "xpath:innerText"]
+      ],
+      "value": "Player 1"
+    }, {
+      "id": "45b977d2-2caf-4c2b-befb-cc0b62776c8d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Odjava",
+      "targets": [
+        ["linkText=Odjava", "linkText"],
+        ["css=.nav > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Odjava')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/odjava')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Odjava')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "22864415-eb3b-4d88-93ee-0bbf5418174d",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "227f862e-0fce-47f7-b7fd-4f064f0b8c99",
+    "name": "Pridruzi se lobiju - neuspesno prazna rec",
+    "commands": [{
+      "id": "b8f0d1ec-b949-49f2-96d6-0193f38f1017",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1cea34a7-f711-46cf-a17e-3d908c1c759a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "71243fc5-50da-4896-a052-9621b905da7e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/prijava')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7b154397-d34c-47ec-ab47-338f4fab17ea",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b3c6937a-0868-4fdf-a1a1-9c08b09fc1eb",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "merisa"
+    }, {
+      "id": "93ffbd9f-fea8-46d8-a693-a1e12c16ddc6",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d62b5d6e-024b-424b-a9fe-2f790b1a6c44",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "merisa123"
+    }, {
+      "id": "6f364d2d-f296-4e1a-86a9-9f8a85f69efb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Prijava']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "549a2ba5-9d76-4f51-bd7b-cd387e9aec57",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Multiplayer",
+      "targets": [
+        ["linkText=Multiplayer", "linkText"],
+        ["css=.col-8:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Multiplayer')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/izbor-lobija')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Multiplayer')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b570156e-54f0-4d2e-b183-09240598b2b9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group:nth-child(3) > .list-group-item:nth-child(4) .btn",
+      "targets": [
+        ["css=.list-group:nth-child(3) > .list-group-item:nth-child(4) .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Pridruzi se')])[3]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'pridruzi-se/15')]", "xpath:href"],
+        ["xpath=//li[4]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a100edd3-f973-492e-af42-0d3363b971c5",
+      "comment": "",
+      "command": "click",
+      "target": "name=selectedRec",
+      "targets": [
+        ["name=selectedRec", "name"],
+        ["css=.form-select", "css:finder"],
+        ["xpath=//select[@name='selectedRec']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "db86355e-5415-4928-bb87-d6766351c32e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Pridruzi se!']", "xpath:attributes"],
+        ["xpath=//form[@id='lobiForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4fc94267-b845-45c3-a45a-642b0cd10d29",
+      "comment": "",
+      "command": "click",
+      "target": "id=lobiForm",
+      "targets": [
+        ["id=lobiForm", "id"],
+        ["css=#lobiForm", "css:finder"],
+        ["xpath=//form[@id='lobiForm']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b2b4c9f-82fc-4dfc-9fce-6bf26651bbb4",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//form[@id='lobiForm']/div[2]", "xpath:idRelative"],
+        ["xpath=//form/div[2]", "xpath:position"]
+      ],
+      "value": "Niste uneli rec."
+    }]
+  }, {
+    "id": "89596194-6edf-46c4-a197-c1df0419ee62",
+    "name": "Pridruzi se lobiju - neuspesno zauzet",
+    "commands": [{
+      "id": "2b11aac4-93d3-4931-ad61-b87d036f02e0",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/prijava",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "037eba35-11b6-4403-b748-1874c501c895",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f855db6e-8e1b-405b-9f4b-2d79981f7ed5",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "97116bd2-3b06-421c-a1b9-79965f3772bb",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "merisa"
+    }, {
+      "id": "41414ac2-2a07-42ad-9b05-63ee7eebb0d9",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac59a78f-7074-445a-a4c2-3d58cee4c764",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "merisa123"
+    }, {
+      "id": "eaa17e2f-c83c-4195-b301-dd45c574a698",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Prijava']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c701bc00-6f3a-42e8-baf0-6d5ccdb4f4c1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Multiplayer",
+      "targets": [
+        ["linkText=Multiplayer", "linkText"],
+        ["css=.col-8:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Multiplayer')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/izbor-lobija')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Multiplayer')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "06eafd28-ce9d-4e24-9d99-e54da0320e13",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group:nth-child(1) > .list-group-item:nth-child(3) .btn",
+      "targets": [
+        ["css=.list-group:nth-child(1) > .list-group-item:nth-child(3) .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Pridruzi se')])[6]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'pridruzi-se/16')]", "xpath:href"],
+        ["xpath=//form[2]/ul/li[2]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e50f2813-b45e-4eff-913c-c02b0843f3b7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.my-3",
+      "targets": [
+        ["css=.my-3", "css:finder"],
+        ["xpath=//form[@action='#']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6782d6b-3d1e-4591-8a1a-7ae1905f258f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Multiplayer - Online mec')]", "xpath:innerText"]
+      ],
+      "value": "Multiplayer - Online mec"
+    }]
+  }, {
+    "id": "d7338d69-d23d-4480-b966-909e217be8e2",
+    "name": "Prikaz rang liste - uspesno",
+    "commands": [{
+      "id": "3f199eae-6399-41b2-a2e8-99105b048741",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bebd06bb-6fc3-41c2-a010-80a54a3e8d05",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5b1431f9-f82c-4a86-85c2-d9741fdfbbb3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/prijava')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "304e428d-c5c7-4d65-824e-c8887abafd47",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e08570c-a948-4d5c-a4a1-2b1c75a7c383",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "magdalena"
+    }, {
+      "id": "02a5f1e0-0b12-4b47-9a7f-7a4aa1e35afd",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "55870e7a-bb7a-4d64-9819-620c5c74dc97",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "magdalena123"
+    }, {
+      "id": "36ab0ac3-d032-4f60-ad7e-1b867106a8ed",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Prijava']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a839de83-b181-4dad-b546-1179f3264319",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Multiplayer",
+      "targets": [
+        ["linkText=Multiplayer", "linkText"],
+        ["css=.col-8:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Multiplayer')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/izbor-lobija')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Multiplayer')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "687b470d-fc55-482d-ad0d-21af6a14f55d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Rang lista",
+      "targets": [
+        ["linkText=Rang lista", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Rang lista')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/rang-lista')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Rang lista')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "57e8051a-8337-4f85-8db9-78027bceef12",
+      "comment": "",
+      "command": "click",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Rang lista')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9055cd95-6f8e-4494-b908-8fcb1468523e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Rang lista')]", "xpath:innerText"]
+      ],
+      "value": "Rang lista"
+    }, {
+      "id": "a8fb982b-18cc-4436-8145-f2e021e717b7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Odjava",
+      "targets": [
+        ["linkText=Odjava", "linkText"],
+        ["css=.nav > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Odjava')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/odjava')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Odjava')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b23e265-1bcb-452b-9ba9-75e2aad4235f",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "17d256c1-dc90-4fea-a6f2-577de5fbcae1",
+    "name": "Administracija - uspesno",
+    "commands": [{
+      "id": "67eed72e-4b5d-40af-bb45-b9dad27871b6",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2718cd96-c059-4592-bb33-461a2169690c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "29f85bdf-6982-457d-942e-067960b9b41d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijavi se",
+      "targets": [
+        ["linkText=Prijavi se", "linkText"],
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijavi se')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/prijava')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea2fd9c5-58ec-4a5f-bc99-1a87afcd0e26",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "78aa636c-f484-4835-8d42-e96993b04f55",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_username",
+      "targets": [
+        ["id=id_username", "id"],
+        ["name=username", "name"],
+        ["css=#id_username", "css:finder"],
+        ["xpath=//input[@id='id_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "60f011eb-4d89-4493-8dfe-ad31d10158a8",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8dcfe398-8a11-4593-8a03-c1dba86fed49",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_password",
+      "targets": [
+        ["id=id_password", "id"],
+        ["name=password", "name"],
+        ["css=#id_password", "css:finder"],
+        ["xpath=//input[@id='id_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "d6595e72-9261-4d8a-9ca2-886d5bc8beb3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Prijava']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "32fff2b7-9a53-41e1-a342-b531e4337ad3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container-fluid:nth-child(1)",
+      "targets": [
+        ["css=.container-fluid:nth-child(1)", "css:finder"],
+        ["xpath=//div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8f338ead-a947-44a1-8a92-d9853d090481",
+      "comment": "",
+      "command": "assertText",
+      "target": "linkText=Administracija",
+      "targets": [
+        ["linkText=Administracija", "linkText"],
+        ["css=.nav > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Administracija')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/admin/')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Administracija')]", "xpath:innerText"]
+      ],
+      "value": "Administracija"
+    }, {
+      "id": "93da6104-5295-462a-8010-9b355fd1e6b6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Administracija",
+      "targets": [
+        ["linkText=Administracija", "linkText"],
+        ["css=.nav > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Administracija')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/admin/')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Administracija')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "37024514-4e6f-4da3-882b-0ce410db3461",
+      "comment": "",
+      "command": "click",
+      "target": "id=header",
+      "targets": [
+        ["id=header", "id"],
+        ["css=#header", "css:finder"],
+        ["xpath=//div[@id='header']", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div", "xpath:idRelative"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba8e596d-dc15-4c29-9bf0-d36e849014f9",
+      "comment": "",
+      "command": "assertText",
+      "target": "linkText=Django administration",
+      "targets": [
+        ["linkText=Django administration", "linkText"],
+        ["css=#site-name > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Django administration')]", "xpath:link"],
+        ["xpath=//h1[@id='site-name']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/admin/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Django administration')]", "xpath:innerText"]
+      ],
+      "value": "Django administration"
+    }, {
+      "id": "ae806e0f-8a91-44ad-8948-ca631327ed4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(5)",
+      "targets": [
+        ["css=a:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Log out')]", "xpath:link"],
+        ["xpath=//div[@id='user-tools']/a[4]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/admin/logout/')]", "xpath:href"],
+        ["xpath=//a[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dfc20c38-db0c-4336-bb4f-62c8e08c15a0",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "a0a8acba-51b6-4e91-a50a-621d953e0b7d",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["470f75d6-5e0c-4055-a4c1-c532c9f97706"]
+  }],
+  "urls": ["http://127.0.0.1:8000/"],
+  "plugins": []
+}
